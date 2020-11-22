@@ -1,0 +1,2 @@
+!function(){var e=!1;function t(n){var o=arguments.length>1&&void 0!==arguments[1]?arguments[1]:{},c=o.force;!c&&n.target.closest("nav")||(document.querySelector("nav").classList.remove("toggled"),document.removeEventListener("click",t),e=!1,n.preventDefault())}document.querySelector(".mobile-menu-toggle").addEventListener("click",(function(n){e?t(n,{force:!0}):(document.querySelector("nav").classList.add("toggled"),n.stopPropagation(),document.addEventListener("click",t,!0),e=!0)}))}();
+//# sourceMappingURL=header.35927639.js.map
