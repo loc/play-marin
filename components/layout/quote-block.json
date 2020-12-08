@@ -1,0 +1,16 @@
+{
+  "collectionName": "components_layout_quote_blocks",
+  "info": {
+    "name": "Quote block",
+    "icon": "chevron-right"
+  },
+  "options": {},
+  "attributes": {
+    "quote": {
+      "type": "text"
+    },
+    "attribution": {
+      "type": "string"
+    }
+  }
+}

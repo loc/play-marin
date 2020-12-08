@@ -1,0 +1,19 @@
+{
+  "collectionName": "components_layout_grouped_photo_blocks",
+  "info": {
+    "name": "Grouped Photo Blocks",
+    "icon": "layer-group",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "block": {
+      "type": "component",
+      "repeatable": true,
+      "component": "media.photo-block"
+    },
+    "title": {
+      "type": "string"
+    }
+  }
+}

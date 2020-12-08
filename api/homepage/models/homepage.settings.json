@@ -1,0 +1,41 @@
+{
+  "kind": "singleType",
+  "collectionName": "homepages",
+  "info": {
+    "name": "Homepage",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": false
+  },
+  "attributes": {
+    "intro": {
+      "type": "component",
+      "repeatable": false,
+      "component": "media.intro-video"
+    },
+    "about_photo_block": {
+      "type": "component",
+      "repeatable": false,
+      "component": "layout.grouped-photo-blocks"
+    },
+    "photo_carousel": {
+      "collection": "file",
+      "via": "related",
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos"
+      ],
+      "plugin": "upload",
+      "required": false
+    },
+    "paul_austin_quote": {
+      "type": "component",
+      "repeatable": false,
+      "component": "layout.quote-block"
+    }
+  }
+}
