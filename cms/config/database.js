@@ -1,15 +1,15 @@
-module.exports = ({ env }) => ({
+module.exports = ({env}) => ({
   defaultConnection: 'default',
   connections: {
     default: {
-      connector: 'bookshelf',
+      connector: 'mongoose',
       settings: {
-        client: 'sqlite',
-        filename: env('DATABASE_FILENAME', '.tmp/data.db'),
+	    database: 'my-database-name',
+        uri: `mongodb+srv://play-marin:${env('DATABASE_PASSWORD', process.env.DATABASE_PASSWORD)}@cluster0.yrono.mongodb.net/play-marin-cms?retryWrites=true&w=majority`
       },
       options: {
-        useNullAsDefault: true,
-      },
-    },
-  },
+        ssl: true
+      }
+    }
+  }
 });
