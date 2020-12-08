@@ -1,0 +1,24 @@
+{
+  "kind": "collectionType",
+  "collectionName": "team_members",
+  "info": {
+    "name": "Team Member",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "name": {
+      "type": "string"
+    },
+    "biography": {
+      "type": "text"
+    },
+    "title": {
+      "type": "string"
+    }
+  }
+}
