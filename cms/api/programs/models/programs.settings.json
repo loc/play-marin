@@ -1,0 +1,43 @@
+{
+  "kind": "collectionType",
+  "collectionName": "programs",
+  "info": {
+    "name": "Programs",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": false
+  },
+  "attributes": {
+    "name": {
+      "type": "string"
+    },
+    "offer_schedule": {
+      "type": "enumeration",
+      "enum": [
+        "month_to_month",
+        "all_year"
+      ]
+    },
+    "location": {
+      "type": "text"
+    },
+    "description": {
+      "type": "richtext"
+    },
+    "photo": {
+      "model": "file",
+      "via": "related",
+      "allowedTypes": [
+        "images"
+      ],
+      "plugin": "upload",
+      "required": false
+    },
+    "is_signup_active": {
+      "type": "boolean"
+    }
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "collectionName": "components_layout_buttons",
+  "info": {
+    "name": "button",
+    "icon": "bullseye"
+  },
+  "options": {},
+  "attributes": {
+    "button_text": {
+      "type": "string"
+    },
+    "link": {
+      "type": "string"
+    }
+  }
+}
