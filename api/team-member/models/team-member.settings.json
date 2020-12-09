@@ -8,7 +8,7 @@
   "options": {
     "increments": true,
     "timestamps": true,
-    "draftAndPublish": true
+    "draftAndPublish": false
   },
   "attributes": {
     "name": {
@@ -19,6 +19,12 @@
     },
     "title": {
       "type": "string"
+    },
+    "order": {
+      "type": "integer",
+      "default": -1,
+      "unique": false,
+      "required": false
     }
   }
 }

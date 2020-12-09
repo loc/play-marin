@@ -1,0 +1,18 @@
+{
+  "collectionName": "components_layout_grouped_team_member_blocks",
+  "info": {
+    "name": "grouped_team_member_block",
+    "icon": "calendar-alt"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "team_members": {
+      "type": "component",
+      "repeatable": true,
+      "component": "layout.partner-block"
+    }
+  }
+}

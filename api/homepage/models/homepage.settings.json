@@ -11,11 +11,6 @@
     "draftAndPublish": false
   },
   "attributes": {
-    "intro": {
-      "type": "component",
-      "repeatable": false,
-      "component": "media.intro-video"
-    },
     "about_photo_block": {
       "type": "component",
       "repeatable": false,
@@ -32,10 +27,15 @@
       "plugin": "upload",
       "required": false
     },
-    "paul_austin_quote": {
+    "pullquote": {
       "type": "component",
       "repeatable": false,
       "component": "layout.quote-block"
+    },
+    "intro_video": {
+      "type": "component",
+      "repeatable": false,
+      "component": "media.video-block"
     }
   }
 }

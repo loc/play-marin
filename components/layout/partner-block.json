@@ -1,0 +1,29 @@
+{
+  "collectionName": "components_layout_partner_blocks",
+  "info": {
+    "name": "team_member_block",
+    "icon": "address-card",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "name": {
+      "type": "string"
+    },
+    "role": {
+      "type": "string"
+    },
+    "description": {
+      "type": "text"
+    },
+    "photo": {
+      "model": "file",
+      "via": "related",
+      "allowedTypes": [
+        "images"
+      ],
+      "plugin": "upload",
+      "required": false
+    }
+  }
+}

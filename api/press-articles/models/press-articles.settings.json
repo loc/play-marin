@@ -1,0 +1,30 @@
+{
+  "kind": "collectionType",
+  "collectionName": "press_articles",
+  "info": {
+    "name": "Press Articles",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "headline": {
+      "type": "string"
+    },
+    "photo": {
+      "model": "file",
+      "via": "related",
+      "allowedTypes": [
+        "images"
+      ],
+      "plugin": "upload",
+      "required": false
+    },
+    "content": {
+      "type": "richtext"
+    }
+  }
+}
