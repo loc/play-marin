@@ -2,17 +2,18 @@
   "collectionName": "components_media_video_blocks",
   "info": {
     "name": "video_block",
-    "icon": "stop"
+    "icon": "stop",
+    "description": ""
   },
   "options": {},
   "attributes": {
-    "youtube_link": {
-      "type": "string"
-    },
     "title": {
       "type": "string"
     },
     "description": {
+      "type": "text"
+    },
+    "youtube_embed": {
       "type": "text"
     }
   }

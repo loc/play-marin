@@ -2,7 +2,8 @@
   "collectionName": "components_layout_quote_blocks",
   "info": {
     "name": "Quote block",
-    "icon": "chevron-right"
+    "icon": "chevron-right",
+    "description": ""
   },
   "options": {},
   "attributes": {
@@ -11,6 +12,15 @@
     },
     "attribution": {
       "type": "string"
+    },
+    "photo": {
+      "model": "file",
+      "via": "related",
+      "allowedTypes": [
+        "images"
+      ],
+      "plugin": "upload",
+      "required": false
     }
   }
 }
