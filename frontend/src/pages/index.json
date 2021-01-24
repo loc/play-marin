@@ -1,0 +1,106 @@
+{
+    "id": 1,
+    "created_at": "2020-12-05T18:55:41.329Z",
+    "updated_at": "2020-12-05T20:01:14.235Z",
+    "Intro": {
+        "id": 1,
+        "Title": "Everyone Wins with Play Marin",
+        "Description": "Play Marin envisions Marin as an integrated and unified community. The lessons learned through the play and experiences we provide instill valuable skills, create friendships, and enhance well being and solidarity among the young people of Marin, improving their prospects for a successful future and benefiting the health of our broader Marin community.",
+        "Youtubelink": "https://www.youtube.com/watch?v=-1nxi2Q76MI"
+    },
+    "About_photo_block": {
+        "id": 2,
+        "Title": "Play and Diversity are Essential for a 21st Century Education",
+        "Block": [
+            {
+                "id": 2,
+                "Title": "Essential Skills",
+                "Description": "Extracurricular activities develop essential skills, such as teamwork, responsibility, grit, endurance, and a sense of culture and community (NCES)",
+                "Photo": null
+            },
+            {
+                "id": 3,
+                "Title": "Better students",
+                "Description": "Play, such as sports, has a positive correlation on student attendance, GPA, and test scores (NCES)",
+                "Photo": null
+            },
+            {
+                "id": 4,
+                "Title": "Collaboration",
+                "Description": "Society is becoming increasingly diverse. Employers hire those who can work with colleagues and customers from diverse cultural backgrounds",
+                "Photo": null
+            }
+        ]
+    },
+    "Paul_austin_quote": {
+        "id": 1,
+        "Quote": "It's important that children spread amongst the many small towns in Marin have the opportunity to learn about others, not by competing against them, but instead through the lens of playing with them.",
+        "Attribution": "— Paul Austin Founder, PLAY MARIN"
+    },
+    "Photo_carousel": [
+        {
+            "id": 1,
+            "name": "9B1A5690 1.jpg",
+            "alternativeText": "",
+            "caption": "",
+            "width": 1440,
+            "height": 960,
+            "formats": {
+                "thumbnail": {
+                    "name": "thumbnail_9B1A5690 1.jpg",
+                    "hash": "thumbnail_9_B1_A5690_1_224e0c5392",
+                    "ext": ".jpg",
+                    "mime": "image/jpeg",
+                    "width": 234,
+                    "height": 156,
+                    "size": 13.4,
+                    "path": null,
+                    "url": "/uploads/thumbnail_9_B1_A5690_1_224e0c5392.jpg"
+                },
+                "large": {
+                    "name": "large_9B1A5690 1.jpg",
+                    "hash": "large_9_B1_A5690_1_224e0c5392",
+                    "ext": ".jpg",
+                    "mime": "image/jpeg",
+                    "width": 1000,
+                    "height": 667,
+                    "size": 142.42,
+                    "path": null,
+                    "url": "/uploads/large_9_B1_A5690_1_224e0c5392.jpg"
+                },
+                "medium": {
+                    "name": "medium_9B1A5690 1.jpg",
+                    "hash": "medium_9_B1_A5690_1_224e0c5392",
+                    "ext": ".jpg",
+                    "mime": "image/jpeg",
+                    "width": 750,
+                    "height": 500,
+                    "size": 90.17,
+                    "path": null,
+                    "url": "/uploads/medium_9_B1_A5690_1_224e0c5392.jpg"
+                },
+                "small": {
+                    "name": "small_9B1A5690 1.jpg",
+                    "hash": "small_9_B1_A5690_1_224e0c5392",
+                    "ext": ".jpg",
+                    "mime": "image/jpeg",
+                    "width": 500,
+                    "height": 333,
+                    "size": 46.29,
+                    "path": null,
+                    "url": "/uploads/small_9_B1_A5690_1_224e0c5392.jpg"
+                }
+            },
+            "hash": "9_B1_A5690_1_224e0c5392",
+            "ext": ".jpg",
+            "mime": "image/jpeg",
+            "size": 255.03,
+            "url": "/uploads/9_B1_A5690_1_224e0c5392.jpg",
+            "previewUrl": null,
+            "provider": "local",
+            "provider_metadata": null,
+            "created_at": "2020-12-05T19:38:15.749Z",
+            "updated_at": "2020-12-05T19:38:15.758Z"
+        }
+    ]
+}

@@ -1,0 +1,34 @@
+@use './variables.scss';
+
+.wrapper {
+	display: flex;
+}
+
+.video-wrapper {
+	flex-grow: 1;
+}
+
+.video-aspect-ratio-wrapper {
+	height: 0;
+	padding-bottom: 56.25%;
+	position: relative;
+}
+
+.video-aspect-ratio-wrapper iframe {
+	width: 100%;
+	height: 100%;
+	position: absolute;
+}
+
+.video {
+}
+
+.title {
+	@extend %roboto;
+	font-weight: 900;
+	font-size: 22px;
+}
+
+.description {
+	line-height: 150%;
+}

@@ -1,0 +1,198 @@
+@use './variables.scss';
+
+$header-height: 88px;
+
+.wrapper {
+	@extend %content-width;
+	@extend %roboto-condensed;
+	height: $header-height;
+	box-sizing: border-box;
+	box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	white-space: nowrap;
+	z-index: 1;
+	position: relative;
+	background: white;
+
+	@media screen and (min-width: 1020px) {
+		margin-top: clamp(-0.01px, calc(100% - 1020px), 20px);
+	}
+}
+
+.donate-button {
+	margin-right: 30px;
+}
+
+.logo {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	height: 100%;
+	margin-left: 30px;
+
+	img {
+		min-width: 76px;
+		width: 76px;
+		height: 76px;
+	}
+}
+
+.menu-list {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	list-style: none;
+	flex-grow: 1;
+	margin: 0;
+	position: relative;
+	padding: 0 15px 0 20px;
+	user-select: none;
+}
+
+.sport-focus,
+.activism-focus {
+	display: flex;
+	flex-direction: row;
+}
+
+.menu-list li {
+	display: flex;
+	line-height: $header-height;
+	text-transform: uppercase;
+	position: relative;
+	font-size: 1.2rem;
+}
+
+.menu-list li a {
+	text-align: center;
+	display: block;
+	display: block;
+	cursor: pointer;
+	color: variables.$text-fg;
+	text-decoration: none;
+}
+
+@media screen and (min-width: 1021px) {
+	.mobile-menu-toggle {
+		display: none;
+	}
+	.sport-focus {
+		justify-content: space-around;
+		flex-basis: 650px;
+	}
+
+	.menu-list li {
+		height: 100%;
+		margin-right: 5px;
+
+		&:not(.menu-list-item-current) a:hover {
+			color: white;
+			background: variables.$blue-purple-gradient;
+		}
+	}
+	.menu-list li a {
+		padding: 0 10px;
+		width: 100%;
+		height: 100%;
+	}
+
+	.menu-list-item-current a:after {
+		content: '';
+		position: absolute;
+		bottom: 0;
+		left: 0;
+		background: variables.$blue-purple-gradient;
+		height: 8px;
+		width: 100%;
+	}
+
+	.menu-list-item-current .menu-list li a {
+		&:after {
+			width: 100%;
+		}
+	}
+}
+
+@media screen and (max-width: 1020px) {
+	.wrapper {
+		height: 73px;
+		flex-wrap: wrap;
+	}
+
+	.logo img {
+		min-width: 63px;
+		width: 63px;
+		height: 63px;
+	}
+
+	.mobile-menu-active {
+		.mobile-menu-toggle {
+			background-image: url(../../public/img/close-x.svg);
+		}
+
+		.menu-list {
+			display: flex;
+		}
+	}
+
+	.menu-list {
+		display: none;
+		flex-direction: column;
+		flex-basis: 100%;
+		order: 4;
+		max-height: 80vh;
+		background: white;
+		z-index: 100;
+		overflow-y: auto;
+		box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+		padding: 0 30px 15px;
+	}
+	.sport-focus,
+	.activism-focus {
+		flex-direction: column;
+	}
+
+	.menu-list li {
+		line-height: 60px;
+	}
+
+	.menu-list li a {
+		text-align: left;
+		position: relative;
+	}
+
+	.menu-list li:not(.menu-list-item-current) a:hover:after {
+		content: '';
+		position: absolute;
+		bottom: 8px;
+		width: 100%;
+		left: 0;
+		background: black;
+		height: 4px;
+	}
+
+	.menu-list-item-current .menu-list li a:after {
+		width: 100%;
+		height: 4px;
+		bottom: 8px;
+		/* background: black; */
+	}
+
+	.donate-button {
+		font-size: 18px;
+		margin-left: auto;
+		margin-right: 10px;
+	}
+
+	.mobile-menu-toggle {
+		width: 60px;
+		height: 60px;
+		background: url(../../public/img/hamburger.svg);
+		background-repeat: no-repeat;
+		background-position: center;
+		order: 3;
+		margin-right: 20px;
+	}
+}

@@ -1,0 +1,50 @@
+$blue: #009edb;
+$purple: #991f68;
+$gray-70: #505067;
+
+$text-fg: black;
+$text-bg: white;
+
+$blue-purple-gradient: linear-gradient(45deg, $blue 0%, $purple 100%);
+
+@mixin gradient-text-overlay {
+	background-image: $blue-purple-gradient;
+	-webkit-background-clip: text;
+	-moz-background-clip: text;
+	-webkit-text-fill-color: transparent;
+	-moz-text-fill-color: transparent;
+}
+
+@mixin unset-gradient-text-overlay {
+	background: none;
+	-webkit-background-clip: unset;
+	-moz-background-clip: unset;
+	-webkit-text-fill-color: unset;
+	-moz-text-fill-color: unset;
+}
+
+%roboto-condensed {
+	font-family: 'Roboto Condensed', sans-serif;
+}
+
+%roboto {
+	font-family: 'Roboto', sans-serif;
+}
+
+%playfair-display {
+	font-family: 'Playfair Display', serif;
+}
+
+%content-width {
+	@media screen and (min-width: 1020px) {
+		min-width: 1020px;
+		max-width: 1300px;
+		width: calc(100% - 60px);
+		margin: 0 auto;
+	}
+
+	@media screen and (max-width: 1020px) {
+		width: 100vw;
+		min-width: 320px;
+	}
+}

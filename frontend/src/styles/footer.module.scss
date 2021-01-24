@@ -1,0 +1,98 @@
+@use './variables.scss';
+
+.wrapper {
+	/* position: absolute; */
+	bottom: 0;
+	left: 0;
+	right: 0;
+	background: variables.$blue-purple-gradient;
+	color: white;
+}
+
+.content {
+	@extend %content-width;
+	height: 100%;
+	padding: 30px;
+	box-sizing: border-box;
+	display: flex;
+}
+
+.logo {
+	display: block;
+	margin-left: -15px;
+}
+
+.social-media-links {
+	margin-left: -10px;
+	padding: 0;
+	list-style: none;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	width: 200px;
+}
+
+.copyright {
+	max-width: 380px;
+	font-size: 14px;
+	line-height: 1.25rem;
+	margin-top: 40px;
+}
+
+.right-side {
+	position: relative;
+	display: flex;
+	align-items: flex-start;
+	flex-direction: column;
+}
+
+.donate-button {
+	box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.1);
+	width: 140px;
+}
+
+.support-explainer {
+	@extend %roboto-condensed;
+	line-height: 1.75rem;
+	font-size: 1.125rem;
+	margin-top: 30px;
+}
+
+@media screen and (min-width: 1021px) {
+	.logo {
+		margin-top: 20px;
+	}
+
+	.content {
+		flex-direction: row;
+		align-items: center;
+	}
+
+	.right-side {
+		margin-left: auto;
+		max-width: 400px;
+	}
+}
+
+@media screen and (max-width: 1020px) {
+	.content {
+		position: relative;
+		flex-direction: column-reverse;
+	}
+
+	.right-side {
+		width: 100%;
+		margin-top: 30px;
+		margin-bottom: 90px;
+		max-width: 500px;
+	}
+
+	.right-side:after {
+		content: '';
+		height: 6px;
+		background: white;
+		width: 100%;
+		position: absolute;
+		bottom: -35px;
+	}
+}
