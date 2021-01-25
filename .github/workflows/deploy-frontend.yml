@@ -22,6 +22,20 @@ jobs:
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
+      
+      - name: Setup Node.js environment
+        uses: actions/setup-node@v2.1.4
+        with:
+          # Version Spec of the version to use.  Examples: 12.x, 10.15.1, >=10.15.0
+          node-version: 10.23.1
+
+      - name: Install dependencies
+        working-directory: ./frontend
+        run: yarn install 
+   
+      - name: Build the frontend
+        working-directory: ./frontend
+        run: NEXT_PUBLIC_BASE_URL=https://play-marin.herokuapp.com/ yarn run build
 
       - uses: kielabokkie/ssh-key-and-known-hosts-action@v1
         with:
@@ -29,7 +43,7 @@ jobs:
           ssh-host: ${{ secrets.DEPLOY_HOST }}
 
       # Runs a single command using the runners shell
-      - name: Run a one-line script
+      - name: Copy built frontend to remote server
         env:
           SSH_HOST: ${{ secrets.DEPLOY_HOST }}
           SSH_USER: ${{ secrets.DEPLOY_USER }}
