@@ -32,4 +32,4 @@ jobs:
         env:
           SSH_HOST: ${{ secrets.DEPLOY_HOST }}
           SSH_USER: ${{ secrets.DEPLOY_USER }}
-        run: rsync -a ./frontend "$SSH_HOST"@"$SSH_USER"/new-site
+        run: rsync -aP ./frontend/ "$SSH_USER"@"$SSH_HOST":/home/"$SSH_USER"/new-site
