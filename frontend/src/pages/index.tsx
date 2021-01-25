@@ -96,6 +96,7 @@ export async function getStaticProps(context) {
 	console.log(res.pullquote.photo);
 
 	return {
+		revalidate: 60,
 		props: {
 			carousel: res.photo_carousel,
 			tagLine: res.tagLine as string,
