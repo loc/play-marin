@@ -1,5 +1,4 @@
 import Head from 'next/head';
-import Image from 'next/image';
 import React, { useEffect, useRef, useState } from 'react';
 
 import button from '../styles/buttons.module.scss';
@@ -42,7 +41,7 @@ export function DefaultPageWrap({ children }) {
 			</Head>
 			<nav className={header.wrapper} ref={ref}>
 				<a className={header.logo} href="#">
-					<Image src="/img/play-marin-logo@2x.png" width={76} height={76} />
+					<img src="/img/play-marin-logo@2x.png" width={76} height={76} />
 				</a>
 				<a
 					className={header['mobile-menu-toggle']}
@@ -87,7 +86,7 @@ export function DefaultPageWrap({ children }) {
 				<div className={footer.content}>
 					<div>
 						<a className={footer.logo} href="#">
-							<Image
+							<img
 								src="/img/play-marin-logo-white@2x.png"
 								width={214}
 								height={122}
@@ -97,7 +96,7 @@ export function DefaultPageWrap({ children }) {
 						<ul className={footer['social-media-links']}>
 							<li>
 								<a href="#">
-									<Image
+									<img
 										src="/img/twitter@2x.png"
 										width={58}
 										height={58}
@@ -107,7 +106,7 @@ export function DefaultPageWrap({ children }) {
 							</li>
 							<li>
 								<a href="#">
-									<Image
+									<img
 										src="/img/instagram@2x.png"
 										width={58}
 										height={58}
@@ -117,7 +116,7 @@ export function DefaultPageWrap({ children }) {
 							</li>
 							<li>
 								<a href="#">
-									<Image
+									<img
 										src="/img/facebook@2x.png"
 										width={58}
 										height={58}

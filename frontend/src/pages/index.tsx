@@ -1,5 +1,3 @@
-import Image from 'next/image';
-
 import { DefaultPageWrap } from '../components/default-page-wrap';
 import buttons from '../styles/buttons.module.scss';
 import homepage from '../styles/homepage.module.scss';
