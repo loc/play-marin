@@ -39,22 +39,20 @@ jobs:
         working-directory: ./frontend
         run: NEXT_PUBLIC_BASE_URL=https://play-marin.herokuapp.com/ yarn run build
 
-      - name: Test date
+      - name: Deploy to server
+        uses: Pendect/action-rsyncer@v1.1.0
+        env:
+          DEPLOY_KEY: ${{ secrets.SSH_KEY }}
+        with:
+          flags: '-avzr --delete'
+          options: ''
+          ssh_options: ''
+          src: 'frontend/'
+          dest: '${{ secrets.DEPLOY_USER }}@${{ secrets.DEPLOY_HOST }}:/home/"$SSH_USER"/new-site'
+
+      - name: Restart server
         uses: JimCronqvist/action-ssh@master
         with:
           hosts: "${{ secrets.DEPLOY_USER }}@${{ secrets.DEPLOY_HOST }}"
           privateKey: ${{ secrets.SSH_KEY }}
-          command: date
-
-      # Runs a single command using the runners shell
-      - name: Copy built frontend to remote server
-        env:
-          SSH_HOST: ${{ secrets.DEPLOY_HOST }}
-          SSH_USER: ${{ secrets.DEPLOY_USER }}
-        run: rsync -aP ./frontend/ "$SSH_USER"@"$SSH_HOST":/home/"$SSH_USER"/new-site
-
-      - name: Restart frontend
-        env:
-          SSH_HOST: ${{ secrets.DEPLOY_HOST }}
-          SSH_USER: ${{ secrets.DEPLOY_USER }}
-        run: ssh "$SSH_USER"@"$SSH_HOST" pm2 restart frontend
+          command: pm2 restart frontend
