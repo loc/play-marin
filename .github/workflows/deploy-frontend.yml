@@ -48,7 +48,7 @@ jobs:
           options: ''
           ssh_options: ''
           src: 'frontend/'
-          dest: '${{ secrets.DEPLOY_USER }}@${{ secrets.DEPLOY_HOST }}:/home/"$SSH_USER"/new-site'
+          dest: '${{ secrets.DEPLOY_USER }}@${{ secrets.DEPLOY_HOST }}:/home/${{ secrets.DEPLOY_USER }}/new-site'
 
       - name: Restart server
         uses: JimCronqvist/action-ssh@master
