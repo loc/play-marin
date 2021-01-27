@@ -4,12 +4,14 @@ name: Deploy frontend
 
 # Controls when the action will run. 
 on:
-  # Triggers the workflow on push or pull request events but only for the main branch
-  push:
-    branches: [ main ]
-
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
+  
+  workflow_run:
+    workflows:
+      - Deploy CMS to Heroku
+    types:
+      - completed
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
@@ -48,3 +50,9 @@ jobs:
           SSH_HOST: ${{ secrets.DEPLOY_HOST }}
           SSH_USER: ${{ secrets.DEPLOY_USER }}
         run: rsync -aP ./frontend/ "$SSH_USER"@"$SSH_HOST":/home/"$SSH_USER"/new-site
+
+      - name: Restart frontend
+        env:
+          SSH_HOST: ${{ secrets.DEPLOY_HOST }}
+          SSH_USER: ${{ secrets.DEPLOY_USER }}
+        run: ssh "$SSH_USER"@"$SSH_HOST" pm2 restart frontend
