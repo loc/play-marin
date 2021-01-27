@@ -39,16 +39,12 @@ jobs:
         working-directory: ./frontend
         run: NEXT_PUBLIC_BASE_URL=https://play-marin.herokuapp.com/ yarn run build
 
-      - uses: kielabokkie/ssh-key-and-known-hosts-action@v1
-        with:
-          ssh-private-key: ${{ secrets.SSH_KEY }}
-          ssh-host: ${{ secrets.DEPLOY_HOST }}
-
       - name: Test date
-        env:
-          SSH_HOST: ${{ secrets.DEPLOY_HOST }}
-          SSH_USER: ${{ secrets.DEPLOY_USER }}
-        run: ssh "$SSH_USER"@"$SSH_HOST" date
+        uses: JimCronqvist/action-ssh@master
+        with:
+          hosts: "${{ secrets.DEPLOY_USER }}@${{ secrets.DEPLOY_HOST }}"
+          privateKey: ${{ secrets.SSH_KEY }}
+          command: date
 
       # Runs a single command using the runners shell
       - name: Copy built frontend to remote server
