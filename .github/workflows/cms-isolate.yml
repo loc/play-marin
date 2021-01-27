@@ -1,4 +1,4 @@
-name: Isolate CMS directory for heroku
+name: Deploy CMS to Heroku
 on:
   push:	
     branches:	
