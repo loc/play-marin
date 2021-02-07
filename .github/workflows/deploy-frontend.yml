@@ -56,4 +56,4 @@ jobs:
           host: ${{ secrets.DEPLOY_HOST }}
           username: ${{ secrets.DEPLOY_USER }}
           key: ${{ secrets.SSH_KEY }}
-          script: pm2 restart frontend
+          script: cd /new-site; pm2 stop frontend; pm2 start --name frontend npm -- start
