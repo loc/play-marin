@@ -2,6 +2,8 @@ import Head from 'next/head';
 import Link from 'next/link';
 import React, { useEffect, useRef, useState } from 'react';
 
+import DonateButton from './donate-button';
+
 import button from '../styles/buttons.module.scss';
 import footer from '../styles/footer.module.scss';
 import header from '../styles/header.module.scss';
@@ -47,8 +49,8 @@ export function DefaultPageWrap({
 				></meta>
 			</Head>
 			<nav className={header.wrapper} ref={ref}>
-				<Link href="/">
-					<a className={header.logo} href="#">
+				<Link href='/'>
+					<a className={header.logo}>
 						<img src="/img/play-marin-logo@2x.png" width={76} height={76} />
 					</a>
 				</Link>
@@ -92,9 +94,7 @@ export function DefaultPageWrap({
 						</li>
 					</div>
 				</ul>
-				<button className={[header['donate-button'], button.primary].join(' ')}>
-					Donate
-				</button>
+				<DonateButton className={header['donate-button']} />
 			</nav>
 			<main className={main['content']}>{children}</main>
 			<footer className={footer.wrapper}>
@@ -146,9 +146,7 @@ export function DefaultPageWrap({
 						</p>
 					</div>
 					<div className={footer['right-side']}>
-						<button className={button['primary-on-dark-background']}>
-							Donate
-						</button>
+						<DonateButton className={button['primary-on-dark-background']} />
 						<p className={footer['support-explainer']}>
 							Your support helps PLAY MARIN close the activity gap in Marin City
 							and provides a more diverse peer group for over 300 kids annually
