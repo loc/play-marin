@@ -31,10 +31,6 @@ export function HomepageProgramCalendar({
 		packBarsInBins(bars),
 		numOfMonthsToShift
 	);
-	console.log(
-		rotate(MONTHS, numOfMonthsToShift),
-		MONTHS.slice(numOfMonthsToShift)
-	);
 
 	return (
 		<>
