@@ -173,6 +173,13 @@
 	top: 25px;
 }
 
+.program-calendar-description {
+	font-weight: 900;
+	font-size: 22px;
+	max-width: 540px;
+	margin-bottom: 80px;
+}
+
 @media screen and (max-width: 1020px) {
 	.tag-line {
 		top: calc(min(42vw, 70vh) + 88px);

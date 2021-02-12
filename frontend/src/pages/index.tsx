@@ -1,8 +1,9 @@
 import { DefaultPageWrap } from '../components/default-page-wrap';
+import { HomepageProgramCalendar } from '../components/homepage-program-calendar';
 import buttons from '../styles/buttons.module.scss';
 import homepage from '../styles/homepage.module.scss';
 import videoBlock from '../styles/video-block.module.scss';
-import { fetchApi } from '../utils/api';
+import { fetchApi, takeDatePairAndMakeCalendarBar } from '../utils/api';
 
 type PhotoWithAltText = {
 	url: string;
@@ -21,6 +22,8 @@ export default function Home({
 	pullquoteContent,
 	pullquoteAttribution,
 	pullquotePhoto,
+	programCalendarBars,
+	programCalendarDescription,
 }: Awaited<ReturnType<typeof getStaticProps>>['props']) {
 	return (
 		<DefaultPageWrap>
@@ -87,27 +90,52 @@ export default function Home({
 				)}
 			</div>
 			<hr></hr>
+			<HomepageProgramCalendar
+				bars={programCalendarBars}
+				description={programCalendarDescription}
+			></HomepageProgramCalendar>
 		</DefaultPageWrap>
 	);
 }
 
 export async function getStaticProps(context) {
-	const res = await fetchApi('homepage');
-	console.log(res.pullquote.photo);
+	const [homepage, programCalendar] = await Promise.all([
+		fetchApi('homepage'),
+		fetchApi('homepage-program-calendars'),
+	]);
+
+	const programCalendarBars = (programCalendar as any[]).map(
+		({
+			start,
+			end,
+			display_name: name,
+		}: {
+			start: string;
+			end: string;
+			display_name: string;
+		}) => {
+			return {
+				...takeDatePairAndMakeCalendarBar([start, end]),
+				name,
+			};
+		}
+	);
 
 	return {
 		revalidate: 60,
 		props: {
-			carousel: res.photo_carousel,
-			tagLine: res.tagLine as string,
-			youtubeEmbed: res.intro_video.youtube_embed,
-			introVideoTitle: res.intro_video.title as string,
-			introVideoDescription: res.intro_video.description as string,
-			pullquoteContent: res.pullquote.quote as string,
-			pullquoteAttribution: res.pullquote.attribution as string,
-			pullquotePhoto: res.pullquote.photo as PhotoWithAltText,
-			missionStatementBlockTitle: res.about_photo_block.title,
-			missionStatementBlocks: res.about_photo_block.block.map(
+			carousel: homepage.photo_carousel,
+			tagLine: homepage.tagLine as string,
+			youtubeEmbed: homepage.intro_video.youtube_embed,
+			introVideoTitle: homepage.intro_video.title as string,
+			introVideoDescription: homepage.intro_video.description as string,
+			pullquoteContent: homepage.pullquote.quote as string,
+			pullquoteAttribution: homepage.pullquote.attribution as string,
+			pullquotePhoto: homepage.pullquote.photo as PhotoWithAltText,
+			missionStatementBlockTitle: homepage.about_photo_block.title,
+			programCalendarBars,
+			programCalendarDescription: homepage.program_calendar_description,
+			missionStatementBlocks: homepage.about_photo_block.block.map(
 				({ title, description, photo }) => ({
 					title,
 					description,
