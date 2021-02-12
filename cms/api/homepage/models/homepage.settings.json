@@ -39,6 +39,9 @@
     },
     "tagLine": {
       "type": "string"
+    },
+    "program_calendar_description": {
+      "type": "text"
     }
   }
 }
