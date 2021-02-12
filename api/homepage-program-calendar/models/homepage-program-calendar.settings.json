@@ -1,0 +1,24 @@
+{
+  "kind": "collectionType",
+  "collectionName": "homepage_program_calendars",
+  "info": {
+    "name": "Homepage Program Calendar Entry",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": false
+  },
+  "attributes": {
+    "start": {
+      "type": "date"
+    },
+    "end": {
+      "type": "date"
+    },
+    "display_name": {
+      "type": "string"
+    }
+  }
+}

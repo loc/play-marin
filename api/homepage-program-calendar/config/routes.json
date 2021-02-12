@@ -1,0 +1,52 @@
+{
+  "routes": [
+    {
+      "method": "GET",
+      "path": "/homepage-program-calendars",
+      "handler": "homepage-program-calendar.find",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/homepage-program-calendars/count",
+      "handler": "homepage-program-calendar.count",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/homepage-program-calendars/:id",
+      "handler": "homepage-program-calendar.findOne",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/homepage-program-calendars",
+      "handler": "homepage-program-calendar.create",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "PUT",
+      "path": "/homepage-program-calendars/:id",
+      "handler": "homepage-program-calendar.update",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "DELETE",
+      "path": "/homepage-program-calendars/:id",
+      "handler": "homepage-program-calendar.delete",
+      "config": {
+        "policies": []
+      }
+    }
+  ]
+}
