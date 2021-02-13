@@ -25,15 +25,17 @@
 }
 .primary:disabled {
 	background: white;
-	color: variables.$gray-70;
 	border: 1px solid #bbbfc4;
+	color: variables.$gray-70;
+	cursor: default;
 }
 
 .primary-on-dark-background {
 	@extend .primary;
-	background: variables.$text-bg;
-	color: variables.$text-fg;
+	background: white;
+	color: black;
 }
+
 .primary-on-dark-background:hover {
 	background: rgb(245, 245, 245);
 }

@@ -94,7 +94,7 @@ export function DefaultPageWrap({
 						</li>
 					</div>
 				</ul>
-				<DonateButton className={header['donate-button']} />
+				<DonateButton className={[header['donate-button'], button['primary']].join(' ')} />
 			</nav>
 			<main className={main['content']}>{children}</main>
 			<footer className={footer.wrapper}>

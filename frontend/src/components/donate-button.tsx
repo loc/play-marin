@@ -3,15 +3,15 @@ import { useRouter } from 'next/router';
 
 export default function DonateButton({className}: {className: string}) {
     const router = useRouter();
-    const buttonClass = [buttonStyles.primary, className].join(' ');
+    const onDonatePage = router.pathname.includes('/donate');
+    const [disabled, setDisabled] = useState(onDonatePage);
 
-    const handleClick = (e) => {
-        e.preventDefault()
+    const handleClick = () => {
         router.push('/donate')
     }
     
     return (
-        <button className={buttonClass} onClick={handleClick}>
+        <button className={className} onClick={handleClick} disabled={disabled}>
             Donate
         </button>
     )
