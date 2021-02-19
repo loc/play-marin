@@ -1,0 +1,105 @@
+@use './variables.scss';
+
+.upper-container,
+.lower-container {
+    display: flex;
+    flex-direction: row;
+    overflow: hidden;
+    position: relative;
+    text-transform: uppercase;
+    width: 100%;
+}
+
+.upper-img-wrapper {
+    position: relative;
+    width: 50%;
+}
+
+.upper-img-wrapper img {
+    max-height: 100%;
+    max-width: 100%;
+}
+
+.upper-img-wrapper::after {
+    background: linear-gradient(270deg, #D6EDFF 75%, rgba(218, 241, 255, 0) 100%);
+    bottom: 0;
+    content: '';
+    left: 75%;
+    position: absolute;
+    right: 0;
+    top: 0;
+}
+
+.cta-container {
+    background-color: #D6EDFF; // to match img:;after fade on desktop
+    display: flex;
+    justify-content: center;
+    padding: 20vh 5vh 0vh;
+    width: 50%;
+}
+
+.upper-header-text-img {
+    max-height: 33vh;
+}
+
+.cta {
+    font-size: 4vh;
+    font-weight: bolder;
+    text-align: left;
+}
+
+.amt-btns-container {
+    display: flex;
+    justify-content: flex-start;
+    padding-bottom: 2em;
+    width: 80%
+}
+
+.amt-btn {
+    @extend %roboto-condensed;
+    background: white;
+    border: none;
+    border-radius: 2em;
+    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.1));
+    font-size: 2.5vh;
+    margin-right: 1em;
+    padding: 0.5em 1em;
+}
+
+.amt-btn:hover {
+    background-color: variables.$blue;
+    color: white;
+}
+
+.shop-link,
+.lower-links a {
+    @extend %roboto-condensed;
+    @include variables.gradient-text-overlay;
+    display: inline-block;
+    font-size: 2vh;
+    padding-right: 1em;
+}
+
+.shop-link::after,
+.lower-links a::after {
+    background: variables.$blue-purple-gradient;
+    content: "";
+    display: block;
+    height: 0.25rem;
+    margin-top: 1rem;
+}
+
+.lower-left-content {
+    float: left;
+    padding: 33px;
+    width: 50%;
+}
+
+.lower-text {
+    text-transform: initial;
+}
+
+.lower-img-wrapper {
+    float: right;
+    width: 50%;
+}
