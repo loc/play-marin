@@ -48,12 +48,10 @@ export default function Donate({
     const lowerParagraphs = lowerPageContent.split(/\n/).filter( p => p.length > 0)
     
     return (
-        <DefaultPageWrap>
+        <DefaultPageWrap activeMenuItem='none'>
             <div className={donateStyles['upper-container']}>
-                <div className={donateStyles['upper-img-wrapper']}>
-                    <img    src={donateHeaderImage.url} 
-                            alt={donateHeaderImage.alternativeText}
-                            />
+                <div    className={donateStyles['upper-img']}
+                        style={{ backgroundImage: `url(${donateHeaderImage.url})` }} >
                 </div>
                 <div className={donateStyles['cta-container']}>
                     <div className={donateStyles['cta-content']}>
@@ -80,18 +78,16 @@ export default function Donate({
             </div>
             
             <div className={donateStyles['lower-container']}>
-                <div className={donateStyles['lower-left-content']}>
-                    <h1 className={donateStyles['lower-header-text']}>{lowerPageHeaderText}</h1>
-                    <div className={donateStyles['lower-text']}>
+                <div className={donateStyles['support-content']}>
+                    <h1 className={donateStyles['support-header']}>{lowerPageHeaderText}</h1>
+                    <div className={donateStyles['support-text']}>
                         {lowerParagraphs.map(
                             (content, i) => <p key={i}>{content}</p>
                             )}
                     </div>
-                    <h2 className={donateStyles['lower-sub-header']}>{lowerPageSubHeaderText}</h2>
-                    <div className={donateStyles['lower-links']}>
-                        <a  href={externalLinkAddress(shopLinkAddress)} 
-                            target="_blank" 
-                            rel="noopener noreferrer" >
+                    <h2 className={donateStyles['support-sub-header']}>{lowerPageSubHeaderText}</h2>
+                    <div className={donateStyles['support-links']}>
+                        <a  href={externalLinkAddress(shopLinkAddress)}>
                             {shopTextLinkSecond}
                         </a>
                         <Link href='/contact'>
@@ -99,10 +95,8 @@ export default function Donate({
                         </Link>
                     </div>
                 </div>
-                <div className={donateStyles['lower-img-wrapper']}>
-                    <img    src={lowerDonateImage.url} 
-                            alt={lowerDonateImage.alternativeText}
-                    />
+                <div    className={donateStyles['lower-img']}
+                        style={{ backgroundImage: `url(${lowerDonateImage.url})` }} >
                 </div>
             </div>
         </DefaultPageWrap>

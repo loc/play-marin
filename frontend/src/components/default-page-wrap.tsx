@@ -63,16 +63,10 @@ export function DefaultPageWrap({
 					style={isMenuOpen ? { display: 'flex' } : {}}
 				>
 					<div className={header['sport-focus']}>
-						<li
-							className={
-								activeMenuItem === 'about' && header['menu-list-item-current']
-							}
-						>
-							<Link href="/about">
-								<a>About</a>
-							</Link>
-						</li>
 						<li>
+							<a href="#">About</a>
+						</li>
+						<li className={header['menu-list-item-current']}>
 							<a href="#">Programs</a>
 						</li>
 						<li>

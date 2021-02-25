@@ -18,7 +18,6 @@
 	background-size: 100%;
 }
 .primary:hover {
-	/* background: @blue; */
 	background-size: 300%;
 	transition: background-size 300ms cubic-bezier(0.46, -0.01, 0.39, 1.03),
 		background-color 300ms ease;
@@ -27,15 +26,14 @@
 	background: white;
 	border: 1px solid #bbbfc4;
 	color: variables.$gray-70;
-	cursor: default;
+	cursor: not-allowed;
 }
 
 .primary-on-dark-background {
 	@extend .primary;
-	background: white;
-	color: black;
+	background: variables.$text-bg;
+	color: variables.$text-fg;
 }
-
 .primary-on-dark-background:hover {
 	background: rgb(245, 245, 245);
 }

@@ -44,9 +44,9 @@ export function HomepageProgramCalendar({
 					))}
 				</div>
 				<div>
-					{bins.map((bin) => (
-						<div className={programCalendar.bin}>
-							{bin.map((bar) => (
+					{bins.map((bin, index) => (
+						<div key={index} className={programCalendar.bin}>
+							{bin.map((bar, index) => (
 								<div
 									className={[
 										programCalendar.bar,
@@ -61,6 +61,7 @@ export function HomepageProgramCalendar({
 										left: `${bar.start * 100}%`,
 										width: `${bar.length * 100}%`,
 									}}
+									key={index}
 								>
 									{bar.name}
 								</div>

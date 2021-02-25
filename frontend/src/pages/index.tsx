@@ -32,7 +32,9 @@ export default function Home({
 					<img src={carousel[0].url} />
 				</div>
 			</div>
+			
 			<div className={homepage['tag-line']}>{tagLine}</div>
+			
 			<div className={[videoBlock.wrapper, homepage.video].join(' ')}>
 				<div className={videoBlock['video-wrapper']}>
 					<div
@@ -74,7 +76,7 @@ export default function Home({
 			<div className={homepage['mission-block-group']}>
 				{missionStatementBlocks.map(
 					({ title, description, photoUrl }, index) => (
-						<div className={homepage['mission-block']}>
+						<div className={homepage['mission-block']} key={index}>
 							<div key={title} className={homepage['mission-block-img-wrap']}>
 								<img
 									className={homepage['mission-block-img']}

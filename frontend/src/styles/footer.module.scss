@@ -1,12 +1,12 @@
 @use './variables.scss';
 
 .wrapper {
-	/* position: absolute; */
+	background: variables.$blue-purple-gradient;
 	bottom: 0;
+	color: white;
 	left: 0;
 	right: 0;
-	background: variables.$blue-purple-gradient;
-	color: white;
+	width: 100%;
 }
 
 .content {

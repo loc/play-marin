@@ -1,7 +1,6 @@
 @use './variables.scss';
 
 .content {
-	@extend %content-width;
+    @extend %content-width;
 	@extend %roboto;
-	padding: 33px;
 }
