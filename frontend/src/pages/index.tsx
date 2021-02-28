@@ -26,7 +26,7 @@ export default function Home({
 	programCalendarDescription,
 }: Awaited<ReturnType<typeof getStaticProps>>['props']) {
 	return (
-		<DefaultPageWrap>
+		<DefaultPageWrap activeMenuItem="none">
 			<div className={homepage.carousel}>
 				<div className={homepage['img-wrapper']}>
 					<img src={carousel[0].url} />

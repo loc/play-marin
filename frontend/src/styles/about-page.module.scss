@@ -1,0 +1,141 @@
+@use './variables.scss';
+
+.header-desc-image-block {
+	position: relative;
+	display: flex;
+	flex-direction: row;
+	width: calc(100% + 60px + 66px);
+	position: relative;
+	left: -63px;
+}
+
+.header-desc-image-block.flipped {
+	flex-direction: row-reverse;
+}
+
+.block-text-wrapper {
+	flex-basis: 50%;
+	padding-left: 63px;
+	line-height: 150%;
+	padding-right: 90px;
+	padding-top: 50px;
+}
+
+.block-header {
+	margin-bottom: 35px;
+}
+
+.block-desc {
+}
+
+.block-image {
+	flex-basis: 50%;
+	background-size: cover;
+	padding-bottom: 50%;
+	height: 100%;
+}
+
+.team-block {
+	margin-top: 50px;
+}
+
+.team-members {
+	display: flex;
+	margin-top: 60px;
+	justify-content: space-between;
+}
+
+.team-member {
+	flex-shrink: 1;
+	max-width: 240px;
+	margin-right: 20px;
+}
+.team-member:last-of-type {
+	padding-right: 0;
+}
+
+// .team-member img {
+// 	max-width: 100%;
+// 	clip-path: circle(closest-side at center);
+// }
+.circle-image {
+	width: 180px;
+	height: 180px;
+	background-position: center;
+	background-size: cover;
+	margin: 0 auto;
+	border-radius: 50%;
+}
+
+.team-member-name,
+.team-member-title {
+	text-align: center;
+}
+
+.team-member-name {
+	@extend %roboto;
+	text-transform: uppercase;
+	font-weight: 900;
+	margin-top: 50px;
+	margin-bottom: 0;
+	line-height: 150%;
+	font-size: 26px;
+}
+
+.team-member-title {
+	@extend %playfair-display;
+	color: variables.$gray-70;
+	font-weight: normal;
+	margin-top: 0;
+	margin-bottom: 50px;
+}
+
+.team-member-bio {
+	font-size: 14px;
+	line-height: 150%;
+}
+
+@media screen and (max-width: 1080px) {
+	.header-desc-image-block {
+		width: calc(100% + 66px);
+		left: -33px;
+	}
+}
+
+@media screen and (max-width: 960px) {
+	.team-members {
+		flex-wrap: wrap;
+	}
+	.team-member {
+		max-width: 45%;
+		margin-bottom: 50px;
+	}
+}
+
+@media screen and (max-width: 830px) {
+	.header-desc-image-block,
+	.header-desc-image-block.flipped {
+		flex-direction: column;
+	}
+
+	.block-image {
+		background-size: cover;
+		height: 100%;
+		background-position: 0% 20%;
+		padding-bottom: min(400px, 100%);
+	}
+
+	.block-text-wrapper {
+		padding: 30px 35px;
+	}
+}
+
+@media screen and (max-width: 575px) {
+	.team-members {
+		flex-wrap: wrap;
+	}
+	.team-member {
+		max-width: 100%;
+		margin-bottom: 50px;
+	}
+}
