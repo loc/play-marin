@@ -1,0 +1,40 @@
+.position-wrap {
+	width: 100%;
+	position: absolute;
+	top: 0;
+	left: 0;
+	height: 60vw;
+	overflow: hidden;
+}
+
+.position-wrap:after {
+	content: '';
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	background: linear-gradient(0deg, white, transparent 60%);
+}
+
+.position-wrap img {
+	width: 100%;
+}
+
+.sizer {
+	height: 56vw;
+}
+
+@media screen and (max-width: 1020px) {
+	.position-wrap {
+		height: auto;
+		position: relative;
+		width: 100vw;
+		left: -33px;
+		top: -33px;
+	}
+
+	.sizer {
+		display: none;
+	}
+}

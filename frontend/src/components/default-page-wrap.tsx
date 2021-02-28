@@ -1,4 +1,5 @@
 import Head from 'next/head';
+import Link from 'next/link';
 import React, { useEffect, useRef, useState } from 'react';
 
 import button from '../styles/buttons.module.scss';
@@ -6,7 +7,13 @@ import footer from '../styles/footer.module.scss';
 import header from '../styles/header.module.scss';
 import main from '../styles/main.module.scss';
 
-export function DefaultPageWrap({ children }) {
+export function DefaultPageWrap({
+	activeMenuItem = 'none',
+	children,
+}: {
+	activeMenuItem: 'about' | 'none';
+	children: any;
+}) {
 	const [isMenuOpen, setIsMenuOpen] = useState(false);
 	const ref = useRef(null);
 
@@ -40,9 +47,11 @@ export function DefaultPageWrap({ children }) {
 				></meta>
 			</Head>
 			<nav className={header.wrapper} ref={ref}>
-				<a className={header.logo} href="#">
-					<img src="/img/play-marin-logo@2x.png" width={76} height={76} />
-				</a>
+				<Link href="/">
+					<a className={header.logo} href="#">
+						<img src="/img/play-marin-logo@2x.png" width={76} height={76} />
+					</a>
+				</Link>
 				<a
 					className={header['mobile-menu-toggle']}
 					onClick={() => setIsMenuOpen(() => !isMenuOpen)}
@@ -52,10 +61,16 @@ export function DefaultPageWrap({ children }) {
 					style={isMenuOpen ? { display: 'flex' } : {}}
 				>
 					<div className={header['sport-focus']}>
-						<li>
-							<a href="#">About</a>
+						<li
+							className={
+								activeMenuItem === 'about' && header['menu-list-item-current']
+							}
+						>
+							<Link href="/about">
+								<a>About</a>
+							</Link>
 						</li>
-						<li className={header['menu-list-item-current']}>
+						<li>
 							<a href="#">Programs</a>
 						</li>
 						<li>
