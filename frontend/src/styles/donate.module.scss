@@ -1,0 +1,159 @@
+@use './variables.scss';
+
+.upper-container,
+.lower-container {
+    display: flex;
+    flex-direction: row;
+    left: -63px;
+    overflow: hidden;
+    position: relative;
+    text-transform: uppercase;
+    top: -108px;
+    width: calc(100% + 60px + 66px);
+}
+
+.upper-img {
+    background-size: cover;
+    flex-basis: 50%;
+    padding-bottom: 50%;
+    position: relative;
+}
+
+.upper-img::after {
+    background: linear-gradient(270deg, #D6EDFF 75%, rgba(218, 241, 255, 0) 100%);
+    bottom: 0;
+    content: '';
+    left: 75%;
+    position: absolute;
+    right: 0;
+    top: 0;
+}
+
+.cta-container {
+    background-color: #D6EDFF; // to match img::after fade on desktop
+    display: flex;
+    flex-basis: 50%;
+    justify-content: left;
+    padding-top: 125px;
+}
+
+.upper-header-text-img {
+    max-height: 33vh;
+}
+
+.cta {
+    font-size: 3.5vh;
+    font-weight: bolder;
+    text-align: left;
+    padding-top: 2rem;
+}
+
+.amt-btns-container {
+    display: flex;
+    justify-content: flex-start;
+    padding-bottom: 2em;
+    width: 80%
+}
+
+.amt-btn {
+    @extend %roboto-condensed;
+    background: white;
+    border: none;
+    border-radius: 2em;
+    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.1));
+    font-size: 2.5vh;
+    margin-right: 1em;
+    padding: 0.5em 1em;
+}
+
+.amt-btn:hover {
+    background-color: variables.$blue;
+    color: white;
+}
+
+.shop-link,
+.support-links a {
+    @extend %roboto-condensed;
+    @include variables.gradient-text-overlay;
+    display: inline-block;
+    font-size: 2vh;
+    padding-right: 1em;
+}
+
+.shop-link::after,
+.support-links a::after {
+    background: variables.$blue-purple-gradient;
+    content: "";
+    display: block;
+    height: 0.25rem;
+    margin-top: 1rem;
+}
+
+.support-content {
+    flex-basis: 50%;
+    padding-left: 93px;
+    padding-right: 33px;
+    padding-top: 33px;
+}
+
+.support-text {
+    text-transform: initial;
+}
+
+.lower-img {
+    background-size: cover;
+    flex-basis: 50%;
+    padding-bottom: 50%;
+}
+
+@media screen and (max-width: 830px) {
+    .upper-container,
+    .lower-container {
+        left: 0;
+        top: 0;
+        width: 100%;
+    }
+
+    .upper-container {
+        flex-direction: column;
+    }
+
+    .lower-container {
+        flex-direction: column-reverse;
+    }
+
+    .upper-img,
+    .lower-img {
+        background-position: 0% 20%;
+        padding-bottom: min(400px, 100%);
+    }
+
+    .upper-img::after {
+        display: none;
+    }
+
+    .upper-header-text-img {
+        display: none;
+    }
+
+    .cta-container,
+    .support-content {
+       background-color: white;
+       margin: 0 10px;
+       padding: 0 10px 10px;
+    }
+
+    .cta {
+        font-size: 3vh;
+        padding-top: 0;
+    }
+
+    .amt-btns-container {
+        flex-wrap: wrap;
+        padding-bottom: 1em;
+    }
+
+    .amt-btn {
+        margin-bottom: 1em;
+    }
+}

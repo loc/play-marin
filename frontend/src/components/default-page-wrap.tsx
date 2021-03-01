@@ -2,6 +2,8 @@ import Head from 'next/head';
 import Link from 'next/link';
 import React, { useEffect, useRef, useState } from 'react';
 
+import DonateButton from './donate-button';
+
 import button from '../styles/buttons.module.scss';
 import footer from '../styles/footer.module.scss';
 import header from '../styles/header.module.scss';
@@ -11,7 +13,7 @@ export function DefaultPageWrap({
 	activeMenuItem = 'none',
 	children,
 }: {
-	activeMenuItem: 'about' | 'none';
+	activeMenuItem: 'about' | 'contact' | 'none';
 	children: any;
 }) {
 	const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -47,8 +49,8 @@ export function DefaultPageWrap({
 				></meta>
 			</Head>
 			<nav className={header.wrapper} ref={ref}>
-				<Link href="/">
-					<a className={header.logo} href="#">
+				<Link href='/'>
+					<a className={header.logo}>
 						<img src="/img/play-marin-logo@2x.png" width={76} height={76} />
 					</a>
 				</Link>
@@ -61,14 +63,14 @@ export function DefaultPageWrap({
 					style={isMenuOpen ? { display: 'flex' } : {}}
 				>
 					<div className={header['sport-focus']}>
-						<li
-							className={
-								activeMenuItem === 'about' && header['menu-list-item-current']
-							}
-						>
-							<Link href="/about">
-								<a>About</a>
-							</Link>
+						<li	
+							className={	
+								activeMenuItem === 'about' ? header['menu-list-item-current'] : undefined
+							}	
+						>	
+							<Link href="/about">	
+								<a>About</a>	
+							</Link>	
 						</li>
 						<li>
 							<a href="#">Programs</a>
@@ -79,8 +81,14 @@ export function DefaultPageWrap({
 						<li>
 							<a href="#">News</a>
 						</li>
-						<li>
-							<a href="#">Contact</a>
+						<li
+							className={	
+								activeMenuItem === 'contact' ? header['menu-list-item-current']	: undefined
+							}
+						>
+							<Link href='/contact'>
+								<a>Contact</a>
+							</Link>
 						</li>
 						<li>
 							<a href="#">Shop</a>
@@ -92,22 +100,22 @@ export function DefaultPageWrap({
 						</li>
 					</div>
 				</ul>
-				<button className={[header['donate-button'], button.primary].join(' ')}>
-					Donate
-				</button>
+				<DonateButton className={[header['donate-button'], button['primary']].join(' ')} />
 			</nav>
 			<main className={main['content']}>{children}</main>
 			<footer className={footer.wrapper}>
 				<div className={footer.content}>
 					<div>
-						<a className={footer.logo} href="#">
-							<img
-								src="/img/play-marin-logo-white@2x.png"
-								width={214}
-								height={122}
-								alt="Play Marin logo"
-							/>
-						</a>
+						<Link href='/'>
+							<a className={footer.logo}>
+								<img
+									src="/img/play-marin-logo-white@2x.png"
+									width={214}
+									height={122}
+									alt="Play Marin logo"
+									/>
+							</a>
+						</Link>
 						<ul className={footer['social-media-links']}>
 							<li>
 								<a href="#">
@@ -146,9 +154,7 @@ export function DefaultPageWrap({
 						</p>
 					</div>
 					<div className={footer['right-side']}>
-						<button className={button['primary-on-dark-background']}>
-							Donate
-						</button>
+						<DonateButton className={button['primary-on-dark-background']} />
 						<p className={footer['support-explainer']}>
 							Your support helps PLAY MARIN close the activity gap in Marin City
 							and provides a more diverse peer group for over 300 kids annually
