@@ -1,5 +1,6 @@
-import Link from 'next/link';
 import { useRouter } from 'next/router';
+
+import Footer from '../components/footer';
 
 export default function DonateForm() {
     const router = useRouter();
@@ -7,11 +8,12 @@ export default function DonateForm() {
 
     return (
         <div>
-            <h1>Donate Form</h1>
-            <p>You've chosen to donate: {donationAmount} to Play Marin!</p>
-            <Link href='/donate'>
-                <a>back to Donate page!</a>
-            </Link>
+            <h1>SUPPORT PLAY MARIN</h1>
+            <p>How much would you like to donate today?</p>
+
+            <p>You've chosen to donate: ${donationAmount} to Play Marin!</p>
+
+            <Footer />
         </div>
     )
 }
