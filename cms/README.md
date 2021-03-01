@@ -7,12 +7,6 @@ Check out the [strapi docs](http://strapi.io/documentation/developer-docs)
 1. Install dependencies
 
 ```bash
-npm install
-```
-
-or 
-
-```bash
 yarn install
 ```
 
@@ -20,23 +14,17 @@ yarn install
 
 3. Obtain admin credentials
 
-3. Start server on port 1337 (configured in `.env`)
-
-```bash
-npm run develop
-```
-
-or
+4. Start server on port 1337 (configured in `.env`)
 
 ```bash
 yarn run develop
 ```
 
-Also aliased as `npm run dev`/`yarn run dev`
+Also aliased as `yarn run dev`
 
-note - running in develop mode allows full editing permissions
+_note - running in develop mode allows full editing permissions_
 
-4. Visit http://localhost:1337/admin to edit content
+5. Visit http://localhost:1337/admin to edit content
 
 Production deployed on heroku and can be accessed with the same admin credentials you obtained for development:
 

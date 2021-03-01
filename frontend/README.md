@@ -9,7 +9,7 @@ yarn install
 2. Source environment variable(s) in `.env.development.local` file
 
 3. Run the API (strapi) server
-_See ./cms/README.md_
+_See ../cms/README.md_
 
 4. Run the development server:
 
