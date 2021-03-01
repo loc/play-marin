@@ -1,0 +1,80 @@
+{
+  "kind": "singleType",
+  "collectionName": "donate-page",
+  "info": {
+    "name": "Donate Page",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": false
+  },
+  "attributes": {
+    "pageHeader": {
+      "type": "string"
+    },
+    "donationCTA": {
+      "type": "string"
+    },
+    "donateHeaderImage": {
+      "model": "file",
+      "via": "related",
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos"
+      ],
+      "plugin": "upload",
+      "required": false
+    },
+    "shopLinkTextFirst": {
+      "type": "string"
+    },
+    "lowerDonateImage": {
+      "model": "file",
+      "via": "related",
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos"
+      ],
+      "plugin": "upload",
+      "required": false
+    },
+    "lowerPageHeaderText": {
+      "type": "string"
+    },
+    "lowerPageContent": {
+      "type": "richtext"
+    },
+    "lowerPageSubHeaderText": {
+      "type": "string"
+    },
+    "shopTextLinkSecond": {
+      "type": "string"
+    },
+    "partnerLinkText": {
+      "type": "string"
+    },
+    "shopLinkAddress": {
+      "type": "string"
+    },
+    "DonateAmountButton": {
+      "type": "component",
+      "repeatable": true,
+      "component": "layout.donate-amount-button"
+    },
+    "upperHeaderTextImage": {
+      "model": "file",
+      "via": "related",
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos"
+      ],
+      "plugin": "upload",
+      "required": false
+    }
+  }
+}

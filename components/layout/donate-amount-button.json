@@ -1,0 +1,13 @@
+{
+  "collectionName": "components_layout_donate_amount_buttons",
+  "info": {
+    "name": "DonateAmountButton",
+    "icon": "dollar-sign"
+  },
+  "options": {},
+  "attributes": {
+    "donationAmount": {
+      "type": "integer"
+    }
+  }
+}
