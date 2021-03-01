@@ -13,7 +13,7 @@ export function DefaultPageWrap({
 	activeMenuItem = 'none',
 	children,
 }: {
-	activeMenuItem: 'about' | 'none';
+	activeMenuItem: 'about' | 'contact' | 'none';
 	children: any;
 }) {
 	const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -63,10 +63,16 @@ export function DefaultPageWrap({
 					style={isMenuOpen ? { display: 'flex' } : {}}
 				>
 					<div className={header['sport-focus']}>
-						<li>
-							<a href="#">About</a>
+						<li	
+							className={	
+								activeMenuItem === 'about' ? header['menu-list-item-current'] : undefined
+							}	
+						>	
+							<Link href="/about">	
+								<a>About</a>	
+							</Link>	
 						</li>
-						<li className={header['menu-list-item-current']}>
+						<li>
 							<a href="#">Programs</a>
 						</li>
 						<li>
@@ -75,8 +81,14 @@ export function DefaultPageWrap({
 						<li>
 							<a href="#">News</a>
 						</li>
-						<li>
-							<a href="#">Contact</a>
+						<li
+							className={	
+								activeMenuItem === 'contact' ? header['menu-list-item-current']	: undefined
+							}
+						>
+							<Link href='/contact'>
+								<a>Contact</a>
+							</Link>
 						</li>
 						<li>
 							<a href="#">Shop</a>
@@ -94,14 +106,16 @@ export function DefaultPageWrap({
 			<footer className={footer.wrapper}>
 				<div className={footer.content}>
 					<div>
-						<a className={footer.logo} href="#">
-							<img
-								src="/img/play-marin-logo-white@2x.png"
-								width={214}
-								height={122}
-								alt="Play Marin logo"
-							/>
-						</a>
+						<Link href='/'>
+							<a className={footer.logo}>
+								<img
+									src="/img/play-marin-logo-white@2x.png"
+									width={214}
+									height={122}
+									alt="Play Marin logo"
+									/>
+							</a>
+						</Link>
 						<ul className={footer['social-media-links']}>
 							<li>
 								<a href="#">

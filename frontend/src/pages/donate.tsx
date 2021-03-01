@@ -9,7 +9,6 @@ import donateStyles from '../styles/donate.module.scss';
 type Awaited<T> = T extends PromiseLike<infer U> ? Awaited<U> : T;
 
 function DonateAmountButton({text}: {text: string}) {
-    // could be combined in DonateButton component? or a generalized parent?
     const router = useRouter();
     const donationAmount = /^\$/.test(text) ? text.slice(1) : text;
 
