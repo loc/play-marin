@@ -15,4 +15,4 @@ export default function DonateButton({className}: {className: string}) {
             Donate
         </button>
     )
-    }
+}

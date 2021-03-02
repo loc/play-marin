@@ -55,22 +55,6 @@
     width: 80%
 }
 
-.amt-btn {
-    @extend %roboto-condensed;
-    background: white;
-    border: none;
-    border-radius: 2em;
-    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.1));
-    font-size: 2.5vh;
-    margin-right: 1em;
-    padding: 0.5em 1em;
-}
-
-.amt-btn:hover {
-    background-color: variables.$blue;
-    color: white;
-}
-
 .shop-link,
 .support-links a {
     @extend %roboto-condensed;
@@ -151,9 +135,5 @@
     .amt-btns-container {
         flex-wrap: wrap;
         padding-bottom: 1em;
-    }
-
-    .amt-btn {
-        margin-bottom: 1em;
     }
 }

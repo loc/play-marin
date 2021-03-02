@@ -75,3 +75,31 @@
 .secondary-on-dark-background:after {
 	background: white;
 }
+
+.donate-amt {
+    @extend %roboto-condensed;
+    background: white;
+    border: 1px solid variables.$gray-light;
+    border-radius: 2em;
+    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.1));
+    font-size: 2.5vh;
+    margin-right: 1em;
+    padding: 0.5em 1em;
+}
+
+.donate-amt:hover {
+    background-color: variables.$blue;
+    color: white;
+}
+
+@media screen and (max-width: 830px) {
+	.donate-amt {
+		margin-bottom: 1em;
+	}
+}
+
+.active {
+	background: variables.$blue-purple-gradient;
+	color: white;
+}
+

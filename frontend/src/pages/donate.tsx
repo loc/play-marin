@@ -4,6 +4,7 @@ import { useRouter } from 'next/router';
 import { DefaultPageWrap } from '../components/default-page-wrap';
 import { fetchApi } from '../utils/api';
 import donateStyles from '../styles/donate.module.scss';
+import buttons from '../styles/buttons.module.scss';
 
 // move type declaration to ...? somewhere shared
 type Awaited<T> = T extends PromiseLike<infer U> ? Awaited<U> : T;
@@ -17,7 +18,7 @@ function DonateAmountButton({text}: {text: string}) {
     }
 
     return (
-        <button className={donateStyles['amt-btn']} onClick={handleClick}>
+        <button className={buttons['donate-amt']} onClick={handleClick}>
             {text}
         </button>
     )
