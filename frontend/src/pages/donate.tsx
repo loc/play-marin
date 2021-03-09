@@ -27,6 +27,7 @@ export default function Donate({
     shopTextLinkSecond,
     partnerLinkText,
     shopLinkAddress,
+    thankYouImage,
 }: Awaited<ReturnType<typeof getStaticProps>>['props']) {
     // parse newline characaters from rich text
     const lowerParagraphs = lowerPageContent.split(/\n/).filter( p => p.length > 0)
@@ -44,7 +45,7 @@ export default function Donate({
                                 className={donateStyles['upper-header-text-img']} />
                         <p className={donateStyles['cta']}>{donationCTA}</p>
                         
-                        <DonateForm amounts={donateAmounts} />
+                        <DonateForm amounts={donateAmounts} thankYouImageUrl={thankYouImage.url} />
 
                         <a  href={externalLinkAddress(shopLinkAddress)} 
                             target="_blank" 
@@ -102,6 +103,7 @@ export async function getStaticProps() {
             shopTextLinkSecond: donatePage.shopTextLinkSecond as string,
             partnerLinkText: donatePage.partnerLinkText as string,
             shopLinkAddress: donatePage.shopLinkAddress as string,
+            thankYouImage: donatePage.thankYouImage,
         },
     };
 }

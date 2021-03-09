@@ -25,9 +25,10 @@ function formatAmountForStripe(amount: number): number {
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
   if (req.method === 'POST') {
     const amount: number = req.body.amount
+    const thankYouImageUrl: string = req.body.thankYouImageUrl
+
     try {
-      // Create Checkout Sessions from body params.
-      // TODO - manage product in stripe instead of product_data hard-coded here?
+      // Create Checkout Sessions from body params
       const params: Stripe.Checkout.SessionCreateParams = {
         submit_type: 'donate',
         payment_method_types: ['card'],
@@ -37,9 +38,9 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
               currency: 'usd',
               unit_amount: formatAmountForStripe(amount),
               product_data: {
-                name: 'Custom donation to Play Marin',
-                description: 'Thank you for your support',
-                images: ['http://playmarin.org/uploads/9_B1_A5690_1_1f991a6310.jpg']
+                name: 'Custom Donation to Play Marin',
+                description: 'Thank you for your support!',
+                images: [thankYouImageUrl]
               }
             },
             quantity: 1,

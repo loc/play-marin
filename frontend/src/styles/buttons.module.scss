@@ -76,8 +76,8 @@
 	background: white;
 }
 
-.donate-amt {
-    @extend %roboto-condensed;
+.small {
+    @extend %base-button;
     background: white;
     border: 1px solid variables.$gray-light;
     border-radius: 2em;
@@ -87,13 +87,27 @@
     padding: 0.5em 1em;
 }
 
-.donate-amt:hover {
-    background-color: variables.$blue;
+.small:hover {
+    background: variables.$blue;
     color: white;
 }
 
+.other-donation,
+.other-donation--active {
+	margin: 0 0 10px 0;
+}
+
+.other-donation--active {
+	background: variables.$blue-purple-gradient;
+	color: white;
+}
+
+.other-donation-submit {
+	margin: 10px 0;
+}
+
 @media screen and (max-width: 830px) {
-	.donate-amt {
+	.small {
 		margin-bottom: 1em;
 	}
 }
