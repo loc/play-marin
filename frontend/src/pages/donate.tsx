@@ -2,11 +2,11 @@ import Link from 'next/link';
 
 import { DefaultPageWrap } from '../components/default-page-wrap';
 import DonateForm from '../components/donate-form';
-import { fetchApi } from '../utils/api';
-import donateStyles from '../styles/donate.module.scss';
 
-// move type declaration to ...? somewhere shared
-type Awaited<T> = T extends PromiseLike<infer U> ? Awaited<U> : T;
+import { fetchApi } from '../utils/api';
+import { Awaited } from '../utils/utils';
+
+import donateStyles from '../styles/donate.module.scss';
 
 function externalLinkAddress(shopLinkAddress: string) {
     // add protocol to link address so Next.js correctly links to external URL

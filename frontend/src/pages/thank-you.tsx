@@ -5,12 +5,10 @@ import useSWR from 'swr'
 import PageHead from '../components/page-head'
 import Footer from '../components/footer'
 import { fetchApi } from '../utils/api'
+import { Awaited } from '../utils/utils'
 
 import thanks from '../styles/thank-you-page.module.scss'
 import buttons from '../styles/buttons.module.scss'
-
-// move type declaration to ...? somewhere shared
-type Awaited<T> = T extends PromiseLike<infer U> ? Awaited<U> : T;
 
 async function fetchGetJSON(url: string) {
   try {

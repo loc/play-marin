@@ -4,12 +4,12 @@ import buttons from '../styles/buttons.module.scss';
 import homepage from '../styles/homepage.module.scss';
 import videoBlock from '../styles/video-block.module.scss';
 import { fetchApi, takeDatePairAndMakeCalendarBar } from '../utils/api';
+import { Awaited } from '../utils/utils';
 
 type PhotoWithAltText = {
 	url: string;
 	alternativeText?: string;
 };
-type Awaited<T> = T extends PromiseLike<infer U> ? Awaited<U> : T;
 
 export default function Home({
 	tagLine,
