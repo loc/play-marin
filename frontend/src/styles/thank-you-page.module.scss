@@ -1,0 +1,98 @@
+@use './variables.scss';
+
+.content {
+    @extend %roboto;
+    display: flex;
+    flex-direction: row;
+}
+
+.left-container,
+.right-container {
+    flex-basis: 50%;
+    overflow: hidden;
+    position: relative;
+}
+
+.img {
+    background-repeat: no-repeat;
+    background-size: contain;
+    padding-bottom: 77%;
+    width: 100%;
+}
+
+.left-content,
+.right-content {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.left-content {
+    justify-content: space-between;
+    padding: 3rem;
+    position: absolute;
+    top: 0;
+    width: 100%;
+}
+
+.right-content {
+    align-items: flex-start;
+    justify-content: space-evenly;
+    padding: 4rem;
+}
+
+.home-logo-container {
+    height: 25%;
+    width: 25%;
+}
+
+.home-logo {
+    background: variables.$blue-purple-gradient;
+    border-radius: 100%;
+    height: 100%;
+    padding-bottom: 100%;
+}
+
+.home-logo-img {
+    margin-top: calc(25%);
+    margin-left: calc(5%);
+    width: 90%;
+}
+
+.img-overlay {
+    width: 45%;
+}
+
+.header {
+    max-width: 75%;
+}
+
+.body {
+    @extend %roboto-condensed;
+    font-size: large;
+    max-width: 80%;
+}
+
+@media screen and (max-width: 1020px) {
+    .left-container{
+        display: none;
+    }
+
+    .right-container {
+        flex-basis: 100%;
+    }
+}
+
+@media screen and (max-width: 830px) {
+    .left-container{
+        display: none;
+    }
+
+    .right-container {
+        flex-basis: 100%;
+    }
+
+    .right-content {
+        padding: 2rem;
+    }
+}
