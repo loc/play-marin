@@ -1,7 +1,7 @@
-import Head from 'next/head';
 import Link from 'next/link';
 import React, { useEffect, useRef, useState } from 'react';
 
+import PageHead from './page-head';
 import DonateButton from './donate-button';
 import Footer from './footer';
 
@@ -37,17 +37,7 @@ export function DefaultPageWrap({
 
 	return (
 		<>
-			<Head>
-				<link rel="preconnect" href="https://fonts.gstatic.com"></link>
-				<link
-					href="https://fonts.googleapis.com/css2?family=Playfair+Display&family=Roboto+Condensed:wght@700&family=Roboto:ital,wght@0,400;0,700;0,900;1,400;1,700;1,900&display=swap"
-					rel="stylesheet"
-				></link>
-				<meta
-					name="viewport"
-					content="width=device-width, initial-scale=1.0"
-				></meta>
-			</Head>
+			<PageHead />
 			<nav className={header.wrapper} ref={ref}>
 				<Link href='/'>
 					<a className={header.logo}>
