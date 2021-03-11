@@ -45,6 +45,7 @@ jobs:
           DOCKER_HOST: ssh://${{ secrets.GCP_SSH_HOST }}
         run: |
              docker stack rm frontend
+             sleep 10
              docker stack deploy --compose-file docker-compose.yml --with-registry-auth frontend
              
 
