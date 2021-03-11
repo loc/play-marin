@@ -37,8 +37,8 @@ jobs:
         
       - name: Build
         env:
-          NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY: ${{ NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY }}
-          STRIPE_SECRET_KEY: ${{ STRIPE_SECRET_KEY }}
+          NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY: ${{ secrets.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY }}
+          STRIPE_SECRET_KEY: ${{ secrets.STRIPE_SECRET_KEY }}
         run: |
              docker-compose build
              docker-compose push
