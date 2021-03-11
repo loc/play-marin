@@ -30,4 +30,4 @@ jobs:
           known_hosts: ${{ secrets.GCP_KNOWN_HOSTS }}
           
       - name: Try SSH
-        run: ssh ${{ secrets.GCP_SSH_HOST }} ls
+        run: ssh ${{ secrets.GCP_SSH_HOST }} pwd
