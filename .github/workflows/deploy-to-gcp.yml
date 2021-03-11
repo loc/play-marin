@@ -31,3 +31,7 @@ jobs:
           
       - name: Try SSH
         run: ssh ${{ secrets.GCP_SSH_HOST }} pwd
+        
+      - name: Docker Login
+        run: docker login -u ${{ secrets.DOCKERHUB_USERNAME }} -p ${{ secrets.DOCKERHUB_PASSWORD }}
+
