@@ -1,0 +1,14 @@
+version: "3.9"
+
+services:
+  nginx:
+    image: andyloc/play-marin-nginx
+    build: ./nginx/
+    ports:
+      - '80:80'
+  frontend:
+    image: andyloc/play-marin-frontend
+    build:
+      context: ./frontend
+      args:
+        cms_url: https://play-marin.herokuapp.com/
