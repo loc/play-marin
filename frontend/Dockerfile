@@ -3,6 +3,8 @@ FROM node:14-alpine AS builder
 COPY . /
 
 ARG cms_url
+ARG next_public_stripe_publishable_key
+ARG stripe_secret_key
 ENV NEXT_PUBLIC_BASE_URL $cms_url
 ENV NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY $next_public_stripe_publishable_key
 ENV STRIPE_SECRET_KEY $stripe_secret_key
@@ -24,6 +26,13 @@ COPY --from=production-packages /node_modules /node_modules
 COPY --from=builder /.next /.next
 COPY --from=builder /public /public
 
+# These are needed for both build and runtime
+ARG cms_url
+ARG next_public_stripe_publishable_key
+ARG stripe_secret_key
+ENV NEXT_PUBLIC_BASE_URL $cms_url
+ENV NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY $next_public_stripe_publishable_key
+ENV STRIPE_SECRET_KEY $stripe_secret_ke
 ENV PORT=3000
 EXPOSE 3000
 
