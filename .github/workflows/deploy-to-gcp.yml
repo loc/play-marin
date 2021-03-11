@@ -29,9 +29,22 @@ jobs:
           key: ${{ secrets.GCP_SSH_KEY }}
           known_hosts: ${{ secrets.GCP_KNOWN_HOSTS }}
           
-      - name: Try SSH
-        run: ssh ${{ secrets.GCP_SSH_HOST }} pwd
+#       - name: Try SSH
+#         run: ssh ${{ secrets.GCP_SSH_HOST }} pwd
         
       - name: Docker Login
         run: docker login -u ${{ secrets.DOCKERHUB_USERNAME }} -p ${{ secrets.DOCKERHUB_PASSWORD }}
+        
+      - name: Build
+        run: |
+             docker compose build
+             docker compose push
+             
+      - name: Deploy
+        env:
+          DOCKER_HOST: ${{ secrets.GCP_SSH_HOST }}
+        run: |
+             docker stack rm frontend
+             docker stack deploy --compose-file docker-compose.yml frontend
+             
 
