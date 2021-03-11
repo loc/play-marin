@@ -75,6 +75,17 @@
       ],
       "plugin": "upload",
       "required": false
+    },
+    "thankYouImage": {
+      "model": "file",
+      "via": "related",
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos"
+      ],
+      "plugin": "upload",
+      "required": false
     }
   }
 }
