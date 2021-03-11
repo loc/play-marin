@@ -19,6 +19,36 @@ async function fetchGetJSON(url: string) {
   }
 }
 
+const PageBody = function({checkoutSession, bodyText}: {checkoutSession: any, bodyText: string}) {
+  const status = checkoutSession?.payment_intent?.status
+  
+  // payment errors are handled by Stripe Checkout before redirecting to this success page
+  
+  if (status == 'succeeded') {
+    return (
+      <div>
+        <p>Your donation was successful</p>
+        <p>{bodyText}</p>
+      </div>
+    )
+  } else {
+    return (
+      <div className={thanks['processing-container']}>
+        <p>Your donation is processing... please wait or check back later</p>
+
+        <div className={thanks['loader-container']}>
+          <div className={thanks['loader-background']}>
+            <div className={thanks['loader-spinner']}>
+              <div className={thanks['loader-inner']} />
+            </div>
+          </div>
+        </div>
+
+      </div>
+    )
+  }
+}
+
 export default function ThankYou({
   image,
   imageOverlayText,
@@ -26,6 +56,10 @@ export default function ThankYou({
   bodyText,
   homeButtonText,
 }: Awaited<ReturnType<typeof getStaticProps>>['props']) {
+  function handleHomeButtonClick() {
+    router.push('/')
+  }
+  
   const router = useRouter()
 
   const { data, error } = useSWR(
@@ -35,52 +69,54 @@ export default function ThankYou({
     fetchGetJSON
   )
 
-  if (error) return <div>failed to load</div>
-
-  const status = data?.session?.payment_intent?.status
-
-  function handleHomeButtonClick() {
-    router.push('/')
-  }
+  const checkoutSession = data?.session
 
   return (
     <>
       <PageHead />
       <main className={thanks['content']}>
-        
-        <div className={thanks['left-container']}>
-          <div  className={thanks['img']}
-                style={{ backgroundImage: `url(${image.url})` }} >
-          </div>
+        { error ? 
+            <p className={thanks['error']}>
+              We're sorry there's been an error loading this page but your donation is likely processing. Please refresh this page.
+            </p>
+          :
+          <>
+            <div className={thanks['left-container']}>
+              <div  className={thanks['img']}
+                    style={{ backgroundImage: `url(${image.url})` }} >
+              </div>
 
-          <div className={thanks['left-content']}>
-            <div className={thanks['home-logo-container']}>  
-              <Link href='/'>
-                <a>
-                  <div className={thanks['home-logo']}>
-                    <img className={thanks['home-logo-img']}src='/img/play-marin-logo-white.png' alt='Play Marin logo'/>
+              <div className={thanks['left-content']}>
+                <div className={thanks['home-logo-container']}>  
+                  <Link href='/'>
+                    <a>
+                      <div className={thanks['home-logo']}>
+                        <img className={thanks['home-logo-img']}src='/img/play-marin-logo-white.png' alt='Play Marin logo'/>
+                      </div>
+                    </a>
+                  </Link>
+                </div>
+                
+                <img className={thanks['img-overlay']} src={imageOverlayText.url} alt={imageOverlayText.alternativeText} />
+              </div>
+              
+            </div>
+
+            <div className={thanks['right-container']}>
+              <div className={thanks['right-content']}>
+                <div>
+                  <h1 className={thanks['header']}>{headerText}</h1>
+                  <div className={thanks['body']}>
+                    <PageBody checkoutSession={checkoutSession} bodyText={bodyText} />
                   </div>
-                </a>
-              </Link>
+                </div>
+                <button className={buttons['primary']} onClick={handleHomeButtonClick}>
+                  {homeButtonText}
+                </button>
+              </div>
             </div>
-            
-            <img className={thanks['img-overlay']} src={imageOverlayText.url} alt={imageOverlayText.alternativeText} />
-          </div>
-          
-        </div>
-
-        <div className={thanks['right-container']}>
-          <div className={thanks['right-content']}>
-            <div>
-              <h1 className={thanks['header']}>{headerText}</h1>
-              <p className={thanks['body']}>{bodyText}</p>
-            </div>
-            <button className={buttons['primary']} onClick={handleHomeButtonClick}>
-              {homeButtonText}
-            </button>
-          </div>
-        </div>
-
+          </>
+        }
       </main>
       <Footer />
     </>

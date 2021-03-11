@@ -86,10 +86,11 @@ export default function DonateForm(
     const { error } = await stripe!.redirectToCheckout({
       sessionId: response.id,
     })
-
-    // TODO If `redirectToCheckout` fails due to a browser or network
-    // error, display the localized error message to customer instead of console.warn
-    console.warn(error.message)
+    
+    // If `redirectToCheckout` fails due to a browser or network
+    if (error) {
+      alert(error.message);
+    }
   }
 
   return (
