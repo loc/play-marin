@@ -10,7 +10,8 @@ RUN yarn build
 
 FROM node:14-alpine AS production-packages
 
-COPY package.json yarn.lock .
+COPY package.json /package.json
+COPY yarn.lock /yarn.lock
 
 ENV NODE_ENV production
 RUN yarn install
