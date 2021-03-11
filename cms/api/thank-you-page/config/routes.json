@@ -1,0 +1,28 @@
+{
+  "routes": [
+    {
+      "method": "GET",
+      "path": "/thank-you-page",
+      "handler": "thank-you-page.find",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "PUT",
+      "path": "/thank-you-page",
+      "handler": "thank-you-page.update",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "DELETE",
+      "path": "/thank-you-page",
+      "handler": "thank-you-page.delete",
+      "config": {
+        "policies": []
+      }
+    }
+  ]
+}

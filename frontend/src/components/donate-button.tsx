@@ -3,7 +3,7 @@ import { useRouter } from 'next/router';
 
 export default function DonateButton({className}: {className: string}) {
     const router = useRouter();
-    const onDonatePage = router.pathname.includes('/donate');
+    const onDonatePage = router.pathname == ('/donate');
     const [disabled, setDisabled] = useState(onDonatePage);
 
     const handleClick = () => {
@@ -15,4 +15,4 @@ export default function DonateButton({className}: {className: string}) {
             Donate
         </button>
     )
-    }
+}

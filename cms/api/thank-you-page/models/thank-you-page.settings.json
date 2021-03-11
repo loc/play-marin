@@ -1,0 +1,45 @@
+{
+  "kind": "singleType",
+  "collectionName": "thank_you_pages",
+  "info": {
+    "name": "Thank You Page"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "image": {
+      "model": "file",
+      "via": "related",
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos"
+      ],
+      "plugin": "upload",
+      "required": false
+    },
+    "imageOverlayText": {
+      "model": "file",
+      "via": "related",
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos"
+      ],
+      "plugin": "upload",
+      "required": false
+    },
+    "headerText": {
+      "type": "string"
+    },
+    "bodyText": {
+      "type": "text"
+    },
+    "homeButtonText": {
+      "type": "string"
+    }
+  }
+}

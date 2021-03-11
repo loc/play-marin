@@ -1,27 +1,12 @@
 import Link from 'next/link';
-import { useRouter } from 'next/router';
 
 import { DefaultPageWrap } from '../components/default-page-wrap';
+import DonateForm from '../components/donate-form';
+
 import { fetchApi } from '../utils/api';
+import { Awaited } from '../utils/utils';
+
 import donateStyles from '../styles/donate.module.scss';
-
-// move type declaration to ...? somewhere shared
-type Awaited<T> = T extends PromiseLike<infer U> ? Awaited<U> : T;
-
-function DonateAmountButton({text}: {text: string}) {
-    const router = useRouter();
-    const donationAmount = /^\$/.test(text) ? text.slice(1) : text;
-
-    const handleClick = () => {
-        router.push(`/donate-form?amount=${donationAmount}`)
-    }
-
-    return (
-        <button className={donateStyles['amt-btn']} onClick={handleClick}>
-            {text}
-        </button>
-    )
-}
 
 function externalLinkAddress(shopLinkAddress: string) {
     // add protocol to link address so Next.js correctly links to external URL
@@ -42,6 +27,7 @@ export default function Donate({
     shopTextLinkSecond,
     partnerLinkText,
     shopLinkAddress,
+    thankYouImage,
 }: Awaited<ReturnType<typeof getStaticProps>>['props']) {
     // parse newline characaters from rich text
     const lowerParagraphs = lowerPageContent.split(/\n/).filter( p => p.length > 0)
@@ -58,14 +44,9 @@ export default function Donate({
                                 alt={upperHeaderTextImage.alternativeText}
                                 className={donateStyles['upper-header-text-img']} />
                         <p className={donateStyles['cta']}>{donationCTA}</p>
-                        <div className={donateStyles['amt-btns-container']}>
-                            {
-                                donateAmounts.map(
-                                    (amt, i) => <DonateAmountButton key={i} text={'$' + amt} />
-                                )
-                            }
-                            <DonateAmountButton text={'OTHER'} />
-                        </div>
+                        
+                        <DonateForm amounts={donateAmounts} thankYouImageUrl={thankYouImage.url} />
+
                         <a  href={externalLinkAddress(shopLinkAddress)} 
                             target="_blank" 
                             rel="noopener noreferrer"
@@ -111,7 +92,7 @@ export async function getStaticProps() {
             upperHeaderTextImage: donatePage.upperHeaderTextImage,
             donationCTA: donatePage.donationCTA as string,
             donateHeaderImage: donatePage.donateHeaderImage,
-            donateAmounts: donatePage.DonateAmountButton.map(
+            donateAmounts: donatePage.DonateAmountButton?.map(
                 ({ donationAmount }) => (donationAmount)
             ),
             shopLinkTextFirst: donatePage.shopLinkTextFirst as string,
@@ -122,6 +103,7 @@ export async function getStaticProps() {
             shopTextLinkSecond: donatePage.shopTextLinkSecond as string,
             partnerLinkText: donatePage.partnerLinkText as string,
             shopLinkAddress: donatePage.shopLinkAddress as string,
+            thankYouImage: donatePage.thankYouImage,
         },
     };
 }

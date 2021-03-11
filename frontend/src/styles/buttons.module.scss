@@ -75,3 +75,45 @@
 .secondary-on-dark-background:after {
 	background: white;
 }
+
+.small {
+    @extend %base-button;
+    background: white;
+    border: 1px solid variables.$gray-light;
+    border-radius: 2em;
+    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.1));
+    font-size: 2.5vh;
+    margin-right: 1em;
+    padding: 0.5em 1em;
+}
+
+.small:hover {
+    background: variables.$blue;
+    color: white;
+}
+
+.other-donation,
+.other-donation--active {
+	margin: 0 0 10px 0;
+}
+
+.other-donation--active {
+	background: variables.$blue-purple-gradient;
+	color: white;
+}
+
+.other-donation-submit {
+	margin: 10px 0;
+}
+
+@media screen and (max-width: 830px) {
+	.small {
+		margin-bottom: 1em;
+	}
+}
+
+.active {
+	background: variables.$blue-purple-gradient;
+	color: white;
+}
+

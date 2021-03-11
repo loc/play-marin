@@ -9,7 +9,7 @@
     position: relative;
     text-transform: uppercase;
     top: -108px;
-    width: calc(100% + 60px + 66px);
+    width: calc(100% + 60px + 34px);
 }
 
 .upper-img {
@@ -51,24 +51,16 @@
 .amt-btns-container {
     display: flex;
     justify-content: flex-start;
-    padding-bottom: 2em;
-    width: 80%
 }
 
-.amt-btn {
-    @extend %roboto-condensed;
-    background: white;
-    border: none;
-    border-radius: 2em;
-    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.1));
-    font-size: 2.5vh;
-    margin-right: 1em;
-    padding: 0.5em 1em;
+.other-amt-form {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
-.amt-btn:hover {
-    background-color: variables.$blue;
-    color: white;
+.other-amt-form--hidden {
+    visibility: hidden;
 }
 
 .shop-link,
@@ -86,7 +78,7 @@
     content: "";
     display: block;
     height: 0.25rem;
-    margin-top: 1rem;
+    margin: 1rem 0;
 }
 
 .support-content {
@@ -104,6 +96,7 @@
     background-size: cover;
     flex-basis: 50%;
     padding-bottom: 50%;
+    height: 100%;
 }
 
 @media screen and (max-width: 830px) {
@@ -150,10 +143,5 @@
 
     .amt-btns-container {
         flex-wrap: wrap;
-        padding-bottom: 1em;
-    }
-
-    .amt-btn {
-        margin-bottom: 1em;
     }
 }
