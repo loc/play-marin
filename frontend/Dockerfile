@@ -4,6 +4,8 @@ COPY . /
 
 ARG cms_url
 ENV NEXT_PUBLIC_BASE_URL $cms_url
+ENV NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY $next_public_stripe_publishable_key
+ENV STRIPE_SECRET_KEY $stripe_secret_key
 
 RUN yarn install
 RUN yarn build
