@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import { DefaultPageWrap } from '../components/default-page-wrap';
 import FeaturePhoto from '../components/feature-photo';
 import { HomepageProgramCalendar } from '../components/homepage-program-calendar';
@@ -42,7 +43,10 @@ export default function Home({
 				<div className={homepage['video-block-details']}>
 					<span className={videoBlock.title}>{introVideoTitle}</span>
 					<p className={videoBlock.description}>{introVideoDescription}</p>
-					<button className={buttons.primary}>About</button>
+
+					<Link href="/about">
+						<button className={buttons.primary}>About</button>
+					</Link>
 				</div>
 			</div>
 
