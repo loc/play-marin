@@ -4,9 +4,9 @@
 	position: relative;
 	display: flex;
 	flex-direction: row;
-	width: calc(100% + 60px + 66px);
+	width: calc(100% + 60px);
 	position: relative;
-	left: -63px;
+	left: -30px;
 }
 
 .header-desc-image-block.flipped {
@@ -105,17 +105,21 @@
 	margin-bottom: 30px;
 }
 
+@media screen and (max-width: 1080px) {
+	.header-desc-image-block {
+		left: 0;
+		width: 100%;
+	}
+
+	.block-text-wrapper {
+		padding-left: 30px;
+	}
+}
+
 @media screen and (max-width: 1020px) {
 	.team-block,
 	.partners-block {
 		padding: 0 30px;
-	}
-}
-
-@media screen and (max-width: 1080px) {
-	.header-desc-image-block {
-		width: calc(100% + 66px);
-		left: -33px;
 	}
 }
 
@@ -135,6 +139,11 @@
 		flex-direction: column;
 	}
 
+	.header-desc-image-block {
+		width: 100%;
+		left: 0;
+	}
+
 	.block-image {
 		background-size: cover;
 		height: 100%;
@@ -143,7 +152,7 @@
 	}
 
 	.block-text-wrapper {
-		padding: 30px 65px;
+		padding: 30px 35px;
 	}
 }
 
