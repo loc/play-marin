@@ -47,10 +47,10 @@ export default function Donate({
                         
                         <DonateForm amounts={donateAmounts} thankYouImageUrl={thankYouImage.url} />
 
-                        <a  href={externalLinkAddress(shopLinkAddress)} 
+                        {shopLinkAddress && <a  href={externalLinkAddress(shopLinkAddress)} 
                             className={donateStyles['shop-link']} >
                             {shopLinkTextFirst}
-                        </a>
+                        </a>}
                     </div>
                 </div>
             </div>
@@ -65,9 +65,9 @@ export default function Donate({
                     </div>
                     <h2 className={donateStyles['support-sub-header']}>{lowerPageSubHeaderText}</h2>
                     <div className={donateStyles['support-links']}>
-                        <a  href={externalLinkAddress(shopLinkAddress)}>
+                        {shopLinkAddress && <a  href={externalLinkAddress(shopLinkAddress)}>
                             {shopTextLinkSecond}
-                        </a>
+                        </a>}
                         <Link href='/contact'>
                             <a>{partnerLinkText}</a>
                         </Link>
