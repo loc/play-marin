@@ -97,7 +97,7 @@
 }
 
 .loader-spinner {
-    animation: rotate 2s linear infinite;
+    animation: rotate 2s ease-in-out infinite;
     border: 0.5rem solid transparent;
     border-top: 0.5rem solid white;
     border-radius: 100%;

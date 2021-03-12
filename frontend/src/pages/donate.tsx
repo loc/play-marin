@@ -48,8 +48,6 @@ export default function Donate({
                         <DonateForm amounts={donateAmounts} thankYouImageUrl={thankYouImage.url} />
 
                         <a  href={externalLinkAddress(shopLinkAddress)} 
-                            target="_blank" 
-                            rel="noopener noreferrer"
                             className={donateStyles['shop-link']} >
                             {shopLinkTextFirst}
                         </a>
