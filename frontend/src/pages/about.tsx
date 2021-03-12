@@ -27,8 +27,8 @@ export default function About({ teamTitle, teamMembers, blocks, partners }) {
 					></div>
 				</div>
 			))}
-			<div>
-				<h2 className={aboutPage['team-block']}>{teamTitle}</h2>
+			<div className={aboutPage['team-block']}>
+				<h2 className={aboutPage['team-header']}>{teamTitle}</h2>
 				<div className={aboutPage['team-members']}>
 					{teamMembers.map(({ name, biography, title, url }) => (
 						<div key={name} className={aboutPage['team-member']}>
@@ -46,7 +46,7 @@ export default function About({ teamTitle, teamMembers, blocks, partners }) {
 				</div>
 			</div>
 			<hr />
-			<div>
+			<div className={aboutPage['partners-block']}>
 				<h2 className={aboutPage['heading']}>Our Partners</h2>
 				<ul className={aboutPage.partners}>
 					{partners.map((partner) => (

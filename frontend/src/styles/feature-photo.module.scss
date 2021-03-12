@@ -29,9 +29,9 @@
 	.position-wrap {
 		height: auto;
 		position: relative;
-		width: 100vw;
-		left: -33px;
-		top: -33px;
+		min-width: 100vw;
+		// left: -33px;
+		// top: -33px;
 	}
 
 	.sizer {

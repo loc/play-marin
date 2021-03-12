@@ -33,7 +33,7 @@ export function HomepageProgramCalendar({
 	);
 
 	return (
-		<>
+		<div className={homepage['program-calendar']}>
 			<div className={homepage['program-calendar-description']}>
 				{description}
 			</div>
@@ -70,7 +70,7 @@ export function HomepageProgramCalendar({
 					))}
 				</div>
 			</div>
-		</>
+		</div>
 	);
 }
 

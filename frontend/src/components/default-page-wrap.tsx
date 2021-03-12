@@ -39,7 +39,7 @@ export function DefaultPageWrap({
 		<>
 			<PageHead />
 			<nav className={header.wrapper} ref={ref}>
-				<Link href='/'>
+				<Link href="/">
 					<a className={header.logo}>
 						<img src="/img/play-marin-logo@2x.png" width={76} height={76} />
 					</a>
@@ -53,16 +53,18 @@ export function DefaultPageWrap({
 					style={isMenuOpen ? { display: 'flex' } : {}}
 				>
 					<div className={header['sport-focus']}>
-						<li	
-							className={	
-								activeMenuItem === 'about' ? header['menu-list-item-current'] : undefined
-							}	
-						>	
-							<Link href="/about">	
-								<a>About</a>	
-							</Link>	
+						<li
+							className={
+								activeMenuItem === 'about'
+									? header['menu-list-item-current']
+									: undefined
+							}
+						>
+							<Link href="/about">
+								<a>About</a>
+							</Link>
 						</li>
-						<li>
+						{/* <li>
 							<a href="#">Programs</a>
 						</li>
 						<li>
@@ -70,27 +72,31 @@ export function DefaultPageWrap({
 						</li>
 						<li>
 							<a href="#">News</a>
-						</li>
+						</li> */}
 						<li
-							className={	
-								activeMenuItem === 'contact' ? header['menu-list-item-current']	: undefined
+							className={
+								activeMenuItem === 'contact'
+									? header['menu-list-item-current']
+									: undefined
 							}
 						>
-							<Link href='/contact'>
+							<Link href="/contact">
 								<a>Contact</a>
 							</Link>
 						</li>
-						<li>
+						{/* <li>
 							<a href="#">Shop</a>
-						</li>
+						</li> */}
 					</div>
-					<div className="activism-focus">
+					{/* <div className="activism-focus">
 						<li>
 							<a href="#">Marin City Matters</a>
 						</li>
-					</div>
+					</div> */}
 				</ul>
-				<DonateButton className={[header['donate-button'], button['primary']].join(' ')} />
+				<DonateButton
+					className={[header['donate-button'], button['primary']].join(' ')}
+				/>
 			</nav>
 			<main className={main['content']}>{children}</main>
 			<Footer />

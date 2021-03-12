@@ -1,4 +1,5 @@
 import { DefaultPageWrap } from '../components/default-page-wrap';
+import FeaturePhoto from '../components/feature-photo';
 import { HomepageProgramCalendar } from '../components/homepage-program-calendar';
 import buttons from '../styles/buttons.module.scss';
 import homepage from '../styles/homepage.module.scss';
@@ -27,14 +28,10 @@ export default function Home({
 }: Awaited<ReturnType<typeof getStaticProps>>['props']) {
 	return (
 		<DefaultPageWrap activeMenuItem="none">
-			<div className={homepage.carousel}>
-				<div className={homepage['img-wrapper']}>
-					<img src={carousel[0].url} />
-				</div>
-			</div>
-			
+			<FeaturePhoto url={carousel[0].url} />
+
 			<div className={homepage['tag-line']}>{tagLine}</div>
-			
+
 			<div className={[videoBlock.wrapper, homepage.video].join(' ')}>
 				<div className={videoBlock['video-wrapper']}>
 					<div

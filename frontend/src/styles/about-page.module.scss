@@ -32,7 +32,7 @@
 	height: 100%;
 }
 
-.team-block {
+.team-header {
 	margin-top: 50px;
 }
 
@@ -95,10 +95,7 @@
 .partners {
 	list-style: none;
 	padding: 0;
-	display: flex;
-	flex-direction: column;
-	flex-wrap: wrap;
-	height: 150px;
+	column-width: 260px;
 	line-height: 170%;
 	width: 90%;
 	font-weight: 700;
@@ -106,6 +103,13 @@
 
 .heading {
 	margin-bottom: 30px;
+}
+
+@media screen and (max-width: 1020px) {
+	.team-block,
+	.partners-block {
+		padding: 0 30px;
+	}
 }
 
 @media screen and (max-width: 1080px) {
@@ -139,7 +143,7 @@
 	}
 
 	.block-text-wrapper {
-		padding: 30px 35px;
+		padding: 30px 65px;
 	}
 }
 

@@ -23,6 +23,7 @@ $header-height: 88px;
 
 .donate-button {
 	margin-right: 30px;
+	margin-left: auto;
 }
 
 .logo {
@@ -80,7 +81,8 @@ $header-height: 88px;
 	}
 	.sport-focus {
 		justify-content: space-around;
-		flex-basis: 650px;
+		// flex-basis: 650px;
+		flex-basis: 190px;
 	}
 
 	.menu-list li {
