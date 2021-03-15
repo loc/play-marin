@@ -141,11 +141,12 @@
 	position: absolute;
 	height: 47vw;
 	left: 0;
+	right: 0;
 	overflow: hidden;
 }
 
 .quote-photo-wrapper img {
-	width: 100vw;
+	width: 100%;
 }
 
 .quote-text-block {
@@ -187,7 +188,7 @@
 	.carousel {
 		height: auto;
 		z-index: 0;
-		width: 100vw;
+		width: 100%;
 		left: -33px;
 		top: -33px;
 		position: relative;

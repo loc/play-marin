@@ -46,7 +46,7 @@ $blue-purple-gradient: linear-gradient(45deg, $blue 0%, $purple 100%);
 	}
 
 	@media screen and (max-width: 1020px) {
-		width: 100vw;
+		width: 100%;
 		min-width: 320px;
 	}
 }
