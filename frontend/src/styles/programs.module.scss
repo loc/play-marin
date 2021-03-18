@@ -1,0 +1,6 @@
+@use './variables.scss';
+
+.page-header {
+    width: fit-content;
+    @include variables.gradient-text-overlay;
+}
