@@ -1,12 +1,14 @@
+import Link from 'next/link';
 import { DefaultPageWrap } from '../components/default-page-wrap';
 import FeaturePhoto from '../components/feature-photo';
 
-import programs from '../styles/programs.module.scss';
+import styles from '../styles/programs.module.scss';
+import buttons from '../styles/buttons.module.scss';
 
 import { fetchApi } from '../utils/api';
 import { Awaited } from '../utils/utils'
 
-const activities = [
+const programs = [
     {
         title: 'Basketball',
         duration_type: 'month-to-month',
@@ -19,6 +21,7 @@ const activities = [
         location_state: 'CA',
         location_zip: '94965',
         blurb: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+        detail_page: 'false',
     },
     {
         title: 'Golf',
@@ -27,6 +30,7 @@ const activities = [
         duration_end: 'November',
         location_type: 'multiple',
         blurb: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+        detail_page: 'true',
     },
     {
         title: 'field trips',
@@ -35,6 +39,7 @@ const activities = [
         duration_end: '',
         location_type: 'multiple',
         blurb: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+        detail_page: 'true',
     }
 ]  
 
@@ -47,9 +52,9 @@ export default function Programs({
         <DefaultPageWrap activeMenuItem='programs'>
             <FeaturePhoto url={headerImage?.url} />
 
-            <div className={programs['header-container']}>
-                <div className={programs['header-content']}>
-                    <h1 className={programs['page-header']}>
+            <div className={styles['header-container']}>
+                <div className={styles['header-content']}>
+                    <h1 className={styles['page-header']}>
                         {headerText}
                     </h1>
                     <p>
@@ -58,52 +63,58 @@ export default function Programs({
                 </div>
             </div>
 
-            <div className={programs['activities-container']}>
+            <div className={styles['programs-container']}>
                 {
-                    activities.map((activity, i) => 
-                        <div key={i} className={programs['activity-row']}>
+                    programs.map((program, i) => 
+                        <div key={i} className={styles['program-row']}>
                             
-                            <div    className={programs['activity-photo']}
+                            <div    className={styles['program-photo']}
                                     style={{ backgroundImage: `url(${headerImage?.url})` }}>
                             </div>
                             
-                            <div className={programs['activity-container']}>                                
-                                <div className={programs['activity-logo']}>
-                                    <span>{activity.title[0].toUpperCase()}</span>
+                            <div className={styles['program-container']}>                                
+                                <div className={styles['program-logo']}>
+                                    <span>{program.title[0].toUpperCase()}</span>
                                 </div>
 
-                                <div className={programs['activity-details']}>
+                                <div className={styles['program-details']}>
                                     
-                                    <div className={programs['activity-title-container']}>
-                                        <div className={programs['activity-title-block']}>
-                                            <div className={programs['activity-title']}>{activity.title}</div>
-                                            <div className={programs['activity-duration']}>
-                                                {activity.duration_type === 'month-to-month' ? 
-                                                    `${activity.duration_start} ● ${activity.duration_end}` : 
-                                                        activity.duration_type === 'year' ? 
+                                    <div className={styles['program-title-container']}>
+                                        <div className={styles['program-title-block']}>
+                                            <div className={styles['program-title']}>{program.title}</div>
+                                            <div className={styles['program-duration']}>
+                                                {program.duration_type === 'month-to-month' ? 
+                                                    `${program.duration_start} ● ${program.duration_end}` : 
+                                                        program.duration_type === 'year' ? 
                                                             'all year' : 
                                                                 'unavailable'}
                                             </div>
                                         </div>
                                     </div>
 
-                                    <div className={programs['activity-inner-block']}>
+                                    <div className={styles['program-inner-block']}>
                                         <img src='img/location-marker.svg' alt='map marker icon'/>
 
-                                        <div className={programs['activity-inner-content']}>
-                                            <div className={programs['activity-location']}>
-                                                { activity.location_type === 'multiple' ? 'Various Locations' : 
+                                        <div className={styles['program-inner-content']}>
+                                            <div className={styles['program-location']}>
+                                                { program.location_type === 'multiple' ? 'Various Locations' : 
                                                     <div>
-                                                        <div>{activity.location_title}</div>
-                                                        <div>{activity.location_street_address}</div>
-                                                        <div>{activity.location_city}, {activity.location_state} {activity.location_zip}</div>
+                                                        <div>{program.location_title}</div>
+                                                        <div>{program.location_street_address}</div>
+                                                        <div>{program.location_city}, {program.location_state} {program.location_zip}</div>
                                                     </div>
                                                 }
                                             </div>
                                         
-                                            <div className={programs['activity-short-description']}>
-                                                {activity.blurb}
+                                            <div className={styles['short-description']}>
+                                                {program.blurb}
                                             </div>
+
+                                            {program.detail_page === 'true' ? 
+                                                <Link href={`/programs/${program.title}`}>
+                                                    <a className={[buttons['secondary'], styles['detail-link']].join(' ')}>Learn More</a>
+                                                </Link> 
+                                                : null }
                                         </div>
                                     </div>
                                 </div>

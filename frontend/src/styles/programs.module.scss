@@ -23,7 +23,7 @@
     @include variables.gradient-text-overlay;
 }
 
-.activities-container {
+.programs-container {
     display: flex;
     flex-direction: column;
     left: -30px;
@@ -31,34 +31,34 @@
     width: calc(100% + 60px);
 }
 
-.activity-row {
+.program-row {
     display: flex;
     flex-direction: row;
 }
 
-.activity-photo,
-.activity-container {
+.program-photo,
+.program-container {
     display: flex;
     flex-basis: 50%;
     flex-direction: row;
 }
 
-.activity-photo {
+.program-photo {
     background-size: cover;
     height: 100%;
     padding-bottom: 50%;
 }
 
-.activity-container {
+.program-container {
     padding-left: 3vw;
 }
 
-.activity-title-block {
+.program-title-block {
     padding-bottom: 2vw;
     text-transform: uppercase;
 }
 
-.activity-logo {
+.program-logo {
     align-items: center;
     background: variables.$blue-purple-gradient;
     border-radius: 100%;
@@ -69,55 +69,61 @@
     max-width: 48px;
 }
 
-.activity-logo span {
+.program-logo span {
     color: variables.$text-bg;
     font-size: 1.5rem;
     font-weight: bold;
 }
 
-.activity-title {
+.program-title {
     font-size: 1.75rem;  
     font-weight: bold;
 }
 
-.activity-duration {
+.program-duration {
     font-size: 1em;
     font-weight: bold;
     line-height: 150%;
 }
 
-.activity-details {
+.program-details {
     display: flex;
     flex-direction: column;
     padding: 0 2vw 2vw;
 }
 
-.activity-location {
+.program-location {
     text-transform: initial;
 }
 
-.activity-inner-block {
+.program-inner-block {
     align-items: flex-start;
     display: flex;
     flex-direction: row;
 }
 
-.activity-inner-content {
+.program-inner-content {
     display: flex;
     flex-direction: column;
     padding-left: 2vw;
 }
 
-.activity-location {
+.program-location {
     font-style: normal;
     font-weight: bold;
     line-height: 150%;
 }
 
-.activity-short-description {
+.short-description {
     font-size: 1em;
     line-height: 150%;
     padding: 2vw 0;
+}
+
+.detail-link {
+    font-weight: bold;
+    line-height: 25px;
+    width: fit-content;
 }
 
 @media screen and (max-width: 1020px) {
@@ -133,20 +139,20 @@
         width: fit-content;
     }
 
-    .activities-container {
+    .programs-container {
         left: 0;
         width: 100%;
     }
 
-    .activity-row {
+    .program-row {
         flex-direction: column;
     }
 
-    .activity-container {
+    .program-container {
         padding: 3vw;
     }
 
-    .activity-logo {
+    .program-logo {
         flex-basis: 43%;
     }
 }
