@@ -28,6 +28,11 @@
 	color: variables.$gray-70;
 	cursor: not-allowed;
 }
+.primary a {
+	// ensure nested <Link /> components and/or <a> elements are also styled
+	color: white;
+	text-decoration: none;
+}
 
 .primary-on-dark-background {
 	@extend .primary;
