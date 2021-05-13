@@ -60,23 +60,7 @@
     "shopLinkAddress": {
       "type": "string"
     },
-    "DonateAmountButton": {
-      "type": "component",
-      "repeatable": true,
-      "component": "layout.donate-amount-button"
-    },
     "upperHeaderTextImage": {
-      "model": "file",
-      "via": "related",
-      "allowedTypes": [
-        "images",
-        "files",
-        "videos"
-      ],
-      "plugin": "upload",
-      "required": false
-    },
-    "thankYouImage": {
       "model": "file",
       "via": "related",
       "allowedTypes": [
