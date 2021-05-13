@@ -97,20 +97,6 @@
     color: white;
 }
 
-.other-donation,
-.other-donation--active {
-	margin: 0 0 10px 0;
-}
-
-.other-donation--active {
-	background: variables.$blue-purple-gradient;
-	color: white;
-}
-
-.other-donation-submit {
-	margin: 10px 0;
-}
-
 @media screen and (max-width: 830px) {
 	.small {
 		margin-bottom: 1em;

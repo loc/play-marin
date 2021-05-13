@@ -48,21 +48,6 @@
     padding-top: 2rem;
 }
 
-.amt-btns-container {
-    display: flex;
-    justify-content: flex-start;
-}
-
-.other-amt-form {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-}
-
-.other-amt-form--hidden {
-    visibility: hidden;
-}
-
 .shop-link,
 .support-links a {
     @extend %roboto-condensed;
@@ -139,9 +124,5 @@
     .cta {
         font-size: 3vh;
         padding-top: 0;
-    }
-
-    .amt-btns-container {
-        flex-wrap: wrap;
     }
 }
