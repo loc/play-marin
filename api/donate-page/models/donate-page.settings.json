@@ -60,11 +60,6 @@
     "shopLinkAddress": {
       "type": "string"
     },
-    "DonateAmountButton": {
-      "type": "component",
-      "repeatable": true,
-      "component": "layout.donate-amount-button"
-    },
     "upperHeaderTextImage": {
       "model": "file",
       "via": "related",
@@ -76,16 +71,10 @@
       "plugin": "upload",
       "required": false
     },
-    "thankYouImage": {
-      "model": "file",
-      "via": "related",
-      "allowedTypes": [
-        "images",
-        "files",
-        "videos"
-      ],
-      "plugin": "upload",
-      "required": false
+    "donationFormIframeLink": {
+      "type": "string",
+      "default": "https://secure.lglforms.com/form_engine/s/DyJ9AqAOL3OOLxrGV7s-mg",
+      "required": true
     }
   }
 }
