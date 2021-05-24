@@ -28,6 +28,11 @@
 	color: variables.$gray-70;
 	cursor: not-allowed;
 }
+.primary a {
+	// ensure nested <Link /> components and/or <a> elements are also styled
+	color: white;
+	text-decoration: none;
+}
 
 .primary-on-dark-background {
 	@extend .primary;
@@ -90,20 +95,6 @@
 .small:hover {
     background: variables.$blue;
     color: white;
-}
-
-.other-donation,
-.other-donation--active {
-	margin: 0 0 10px 0;
-}
-
-.other-donation--active {
-	background: variables.$blue-purple-gradient;
-	color: white;
-}
-
-.other-donation-submit {
-	margin: 10px 0;
 }
 
 @media screen and (max-width: 830px) {

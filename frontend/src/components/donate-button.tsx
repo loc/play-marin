@@ -1,9 +1,9 @@
-import React, { useState } from 'react';
-import { useRouter } from 'next/router';
+import React, { useState } from 'react'
+import { useRouter } from 'next/router'
 
 export default function DonateButton({className}: {className: string}) {
     const router = useRouter();
-    const onDonatePage = router.pathname == ('/donate');
+    const onDonatePage = router.pathname.match('/donate')?.length > 0;
     const [disabled, setDisabled] = useState(onDonatePage);
 
     const handleClick = () => {

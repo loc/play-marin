@@ -54,7 +54,7 @@ function renderForm({ errors, submitForm }) {
 			<form
 				onSubmit={submitForm}
 				className={contactForm.form}
-				action="https://mailthis.to/playmarin"
+				action="https://mailthis.to/info@playmarin.org"
 				method="POST"
 				encType="multipart/form-data"
 			>
@@ -104,7 +104,7 @@ function renderForm({ errors, submitForm }) {
 							contactForm.email,
 						].join(' ')}
 					></div>
-					info@playmarin.com
+					info@playmarin.org
 				</li>
 				<li>
 					<div
@@ -113,7 +113,7 @@ function renderForm({ errors, submitForm }) {
 							contactForm.phone,
 						].join(' ')}
 					></div>
-					+1 415 686 5045
+					+1 415 944 7141
 				</li>
 				<li>
 					<div

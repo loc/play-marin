@@ -1,12 +1,12 @@
 import Link from 'next/link';
 
 import { DefaultPageWrap } from '../components/default-page-wrap';
-import DonateForm from '../components/donate-form';
 
 import { fetchApi } from '../utils/api';
 import { Awaited } from '../utils/utils';
 
 import donateStyles from '../styles/donate.module.scss';
+import buttons from '../styles/buttons.module.scss';
 
 function externalLinkAddress(shopLinkAddress: string) {
     // add protocol to link address so Next.js correctly links to external URL
@@ -17,7 +17,6 @@ function externalLinkAddress(shopLinkAddress: string) {
 export default function Donate({
     donateHeaderImage,
     upperHeaderTextImage,
-    donateAmounts,
     donationCTA,
     shopLinkTextFirst,
     lowerDonateImage,
@@ -27,11 +26,10 @@ export default function Donate({
     shopTextLinkSecond,
     partnerLinkText,
     shopLinkAddress,
-    thankYouImage,
 }: Awaited<ReturnType<typeof getStaticProps>>['props']) {
     // parse newline characaters from rich text
     const lowerParagraphs = lowerPageContent.split(/\n/).filter( p => p.length > 0)
-    
+
     return (
         <DefaultPageWrap activeMenuItem='none'>
             <div className={donateStyles['upper-container']}>
@@ -45,7 +43,11 @@ export default function Donate({
                                 className={donateStyles['upper-header-text-img']} />
                         <p className={donateStyles['cta']}>{donationCTA}</p>
                         
-                        <DonateForm amounts={donateAmounts} thankYouImageUrl={thankYouImage.url} />
+                        <button className={buttons['primary']}>
+                            <Link href='/donate-form'>
+                                Donate to Play Marin
+                            </Link>
+                        </button>
 
                         {shopLinkAddress && <a  href={externalLinkAddress(shopLinkAddress)} 
                             className={donateStyles['shop-link']} >
@@ -90,9 +92,6 @@ export async function getStaticProps() {
             upperHeaderTextImage: donatePage.upperHeaderTextImage,
             donationCTA: donatePage.donationCTA as string,
             donateHeaderImage: donatePage.donateHeaderImage,
-            donateAmounts: donatePage.DonateAmountButton?.map(
-                ({ donationAmount }) => (donationAmount)
-            ),
             shopLinkTextFirst: donatePage.shopLinkTextFirst as string,
             lowerDonateImage: donatePage.lowerDonateImage,
             lowerPageHeaderText: donatePage.lowerPageHeaderText as string,
@@ -101,7 +100,6 @@ export async function getStaticProps() {
             shopTextLinkSecond: donatePage.shopTextLinkSecond as string,
             partnerLinkText: donatePage.partnerLinkText as string,
             shopLinkAddress: donatePage.shopLinkAddress as string,
-            thankYouImage: donatePage.thankYouImage,
         },
     };
 }

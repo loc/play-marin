@@ -1,0 +1,15 @@
+@use './variables.scss';
+
+.content {
+    @extend %roboto;
+}
+
+.iframe-container {
+    width: 100%;
+}
+
+.iframe {
+    border: none;
+    height: 958px;
+    width: 100%;
+}
