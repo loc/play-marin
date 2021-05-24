@@ -21,11 +21,8 @@
         "all_year"
       ]
     },
-    "location": {
-      "type": "text"
-    },
-    "description": {
-      "type": "richtext"
+    "location_name": {
+      "type": "string"
     },
     "photo": {
       "model": "file",
@@ -36,8 +33,67 @@
       "plugin": "upload",
       "required": false
     },
-    "is_signup_active": {
+    "schedule_start": {
+      "type": "enumeration",
+      "enum": [
+        "January",
+        "February",
+        "March",
+        "April",
+        "May",
+        "June",
+        "July",
+        "August",
+        "September",
+        "October",
+        "November",
+        "December"
+      ]
+    },
+    "schedule_end": {
+      "type": "enumeration",
+      "enum": [
+        "January",
+        "February",
+        "March",
+        "April",
+        "May",
+        "June",
+        "July",
+        "August",
+        "September",
+        "October",
+        "November",
+        "December"
+      ]
+    },
+    "location_type": {
+      "type": "enumeration",
+      "enum": [
+        "single",
+        "multiple"
+      ]
+    },
+    "location_street_address": {
+      "type": "string"
+    },
+    "location_city": {
+      "type": "string"
+    },
+    "location_state": {
+      "type": "string"
+    },
+    "location_zip": {
+      "type": "string"
+    },
+    "blurb": {
+      "type": "text"
+    },
+    "has_detail_page": {
       "type": "boolean"
+    },
+    "detail_content": {
+      "type": "richtext"
     }
   }
 }

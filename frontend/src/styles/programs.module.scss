@@ -36,8 +36,7 @@
     flex-direction: row;
 }
 
-.program-photo,
-.program-container {
+.program-photo {
     display: flex;
     flex-basis: 50%;
     flex-direction: row;
@@ -50,7 +49,10 @@
 }
 
 .program-container {
-    padding-left: 3vw;
+    display: flex;
+    flex-basis: 50%;
+    flex-direction: row;
+    padding: 3vw;
 }
 
 .program-title-block {
@@ -80,7 +82,7 @@
     font-weight: bold;
 }
 
-.program-duration {
+.program-schedule {
     font-size: 1em;
     font-weight: bold;
     line-height: 150%;
@@ -88,6 +90,7 @@
 
 .program-details {
     display: flex;
+    flex-basis: 80%;
     flex-direction: column;
     padding: 0 2vw 2vw;
 }
@@ -126,6 +129,10 @@
     width: fit-content;
 }
 
+.detail-link:hover {
+    text-decoration: none;
+}
+
 @media screen and (max-width: 1020px) {
 	.header-container {
         background: none;
@@ -146,10 +153,6 @@
 
     .program-row {
         flex-direction: column;
-    }
-
-    .program-container {
-        padding: 3vw;
     }
 
     .program-logo {
