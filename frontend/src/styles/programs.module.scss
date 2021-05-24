@@ -48,6 +48,32 @@
     padding-bottom: 50%;
 }
 
+.program-letter-container {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    flex-basis: 50%;
+    flex-direction: column;
+}
+
+.program-letter {
+    background: variables.$blue-purple-gradient;
+    border-radius: 100%;
+    height: auto;
+    padding-top: 50%;
+    position: relative;
+    width: 50%;
+}
+
+.program-letter span {
+    color: variables.$text-bg;
+    font-size: xx-large;
+    font-weight: bold;  
+    left: 45%;
+    position: absolute;
+    top: 45%;
+}
+
 .program-container {
     display: flex;
     flex-basis: 50%;

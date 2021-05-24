@@ -14,6 +14,25 @@ export default function Programs({
     headerImage,
     programs,
 }: Awaited<ReturnType<typeof getStaticProps>>['props']) {
+    function programPhoto(program: { photo: { url: string }, name: string }) {
+
+        if (program.photo) {
+            return (
+                <div className={styles['program-photo']}
+                    style={{ backgroundImage: `url(${program.photo?.url})` }}>
+                </div>
+            )
+        } else {
+            return (
+                <div className={styles['program-letter-container']}>
+                    <div className={styles['program-letter']}>
+                        <span>{program.name[0].toUpperCase()}</span>
+                    </div>
+                </div>
+            )
+        }
+    }
+
     return (
         <DefaultPageWrap activeMenuItem='programs'>
             <FeaturePhoto url={headerImage?.url} />
@@ -31,12 +50,10 @@ export default function Programs({
 
             <div className={styles['programs-container']}>
                 {
-                    programs.map((program, i) => 
+                    programs.map((program, i: number) => 
                         <div key={i} className={styles['program-row']}>
                             
-                            <div    className={styles['program-photo']}
-                                    style={{ backgroundImage: `url(${program.photo?.url})` }}>
-                            </div>
+                            {programPhoto(program)}
                             
                             <div className={styles['program-container']}>                                
                                 <div className={styles['program-logo']}>
