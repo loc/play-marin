@@ -149,6 +149,10 @@
     padding: 2vw 0;
 }
 
+.short-description--mobile {
+    display: none;
+}
+
 .detail-link {
     font-weight: bold;
     line-height: 25px;
@@ -183,5 +187,15 @@
 
     .program-logo {
         flex-basis: 43%;
+    }
+
+    .short-description {
+        display: none;
+    }
+
+    .short-description--mobile {
+        display: block;
+        margin: 1rem auto;
+        width: 90%;
     }
 }

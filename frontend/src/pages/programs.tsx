@@ -99,8 +99,12 @@ export default function Programs({
                                                 </Link> 
                                                 : null }
                                         </div>
-                                    </div>
+                                    </div>                           
                                 </div>
+                            </div>
+
+                            <div className={styles['short-description--mobile']}>
+                                {program.blurb}
                             </div>
                         </div>
                     )
