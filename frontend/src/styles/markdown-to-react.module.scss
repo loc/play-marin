@@ -1,0 +1,12 @@
+@use './variables.scss';
+
+.container blockquote {
+    border-left: .4rem solid variables.$gray-light;
+    color: variables.$gray-70;
+    font-style: italic;
+    padding: .5rem;
+}
+
+.container blockquote p {
+    margin: unset;
+}

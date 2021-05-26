@@ -1,5 +1,6 @@
 import { DefaultPageWrap } from '../../../components/default-page-wrap'
 import FeaturePhoto from '../../../components/feature-photo'
+import MarkdownToReact from '../../../components/markdown-to-react'
 
 import styles from '../../../styles/program-detail.module.scss'
 
@@ -28,7 +29,7 @@ export default function Program({
                 { photo?.url ? <FeaturePhoto url={photo?.url} /> : logo(name) }
                 
                 <div className={styles['page-content']}>
-                    {content}
+                    <MarkdownToReact markdown={content} />
                 </div>
             </div>
         </DefaultPageWrap>
