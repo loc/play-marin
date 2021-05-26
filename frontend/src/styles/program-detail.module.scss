@@ -40,11 +40,36 @@
     flex-direction: column;
     min-height: 80%;
 }
+
+.page-container--column div:after {
+    // remove "fade" pseudo-element from <FeaturePhoto /> component
+    display: none;
+}
 // -- end with feature photo
 
+// shared styles
 .page-content {
     align-items: center;
     display: flex;
     flex-basis: 50%;
     padding: 1rem;
+}
+
+// mobile styles
+@media screen and (max-width: 1020px) {
+    .page-container--row {
+        flex-direction: column;
+    }
+
+    .logo-container {
+        display: none;
+    }
+
+	.page-content {
+        max-width: 95%;
+    }
+
+    .page-content img {
+        max-width: 100%;
+    }
 }

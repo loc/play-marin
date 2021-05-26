@@ -12,21 +12,19 @@ export default function Program({
     name,
     photo,
 }: Awaited<ReturnType<typeof getStaticProps>>['props']) {
-
-    function logo(name: string) {
-        return (
-            <div className={styles['logo-container']}>
-                <div className={styles['logo']}>
-                    <span>{name[0].toUpperCase()}</span>
-                </div>
-            </div>
-        )
-    }
+    const displayFeaturePhoto = photo?.url
 
     return (
         <DefaultPageWrap activeMenuItem='programs'>
-            <div className={photo?.url ? styles['page-container--column'] : styles['page-container--row']}>
-                { photo?.url ? <FeaturePhoto url={photo?.url} /> : logo(name) }
+            <div className={styles[`page-container--${displayFeaturePhoto ? 'column' : 'row'}`]}>
+                { displayFeaturePhoto ? 
+                    <FeaturePhoto url={photo.url} /> : 
+                    <div className={styles['logo-container']}>
+                        <div className={styles['logo']}>
+                            <span>{name[0].toUpperCase()}</span>
+                        </div>
+                    </div>
+                }
                 
                 <div className={styles['page-content']}>
                     <MarkdownToReact markdown={content} />
@@ -58,7 +56,7 @@ export async function getStaticProps({ params }) {
         props: {
             content: programContent[0]?.detail_content,
             name: programContent[0].name as string,
-            photo: programContent[0]?.photo || null,
+            photo: programContent[0]?.photo ||  null,
         }
     }
 }
