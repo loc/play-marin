@@ -1,0 +1,44 @@
+@use './variables.scss';
+
+.container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    padding: 1rem;
+}
+
+.left,
+.right {
+    display: flex;
+    flex-basis: 50%;
+    flex-direction: column;
+    justify-content: center;
+    padding: 1rem;
+}
+
+.left {
+    align-items: flex-end;
+    border-right: 1px solid variables.$gray-light;
+}
+
+.right {
+    align-items: flex-start;
+}
+
+.circle {
+    background: variables.$blue-purple-gradient;
+    border-radius: 50%;
+    height: auto;
+    padding-top: 50%;
+    position: relative;
+    width: 50%;
+}
+
+.circle span {
+    color: variables.$text-bg;
+    font-size: xx-large;
+    font-weight: bold;  
+    left: 35%;
+    position: absolute;
+    top: 45%;
+}
