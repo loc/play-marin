@@ -1,68 +1,59 @@
 @use './variables.scss';
 
-// no feature photo
-.page-container--row {
+.page-container {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     min-height: 56vw;
 }
 
-.logo-container {
-    align-items: center;
-    display: flex;
-    flex-basis: 50%;
-    justify-content: center;
-    padding: 1rem;
-}
-
-.logo {
-    background: variables.$blue-purple-gradient;
-    border-radius: 50%;
-    height: auto;
-    padding-top: 33%;
-    position: relative;
-    width: 33%;
-}
-
-.logo span {
-    color: variables.$text-bg;
-    font-size: 2rem;
-    font-weight: bold;
-    left: 42%;
-    position: absolute;
-    top: 42%;
-}
-// -- end no feature photo
-
-// with feature photo
-.page-container--column { 
-    display: flex;
-    flex-direction: column;
-    min-height: 80%;
-}
-
-.page-container--column div:after {
+.page-container div:after {
     // remove "fade" pseudo-element from <FeaturePhoto /> component
     display: none;
 }
-// -- end with feature photo
 
-// shared styles
-.page-content {
-    align-items: center;
+.row {
     display: flex;
-    flex-basis: 50%;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.program-details {
+    display: flex;
+    flex-basis: 33%;
+    flex-direction: column;
+}
+
+.header {
+    display: flex;
+    justify-content: space-evenly;
     padding: 1rem;
 }
 
-// mobile styles
+.loc {
+    align-self: flex-end;
+}
+
+.page-content {
+    padding-bottom: 1rem;
+    padding-left: 1rem;
+}
+
 @media screen and (max-width: 1020px) {
-    .page-container--row {
+    .row {
         flex-direction: column;
     }
 
-    .logo-container {
-        display: none;
+    .program-details {
+        flex-basis: unset;
+        padding: unset;
+    }
+
+    .loc {
+        align-self: center;
+    }
+
+    .loc img {
+        width: 4vw;
     }
 
 	.page-content {
