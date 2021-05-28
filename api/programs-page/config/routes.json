@@ -1,0 +1,28 @@
+{
+  "routes": [
+    {
+      "method": "GET",
+      "path": "/programs-page",
+      "handler": "programs-page.find",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "PUT",
+      "path": "/programs-page",
+      "handler": "programs-page.update",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "DELETE",
+      "path": "/programs-page",
+      "handler": "programs-page.delete",
+      "config": {
+        "policies": []
+      }
+    }
+  ]
+}
