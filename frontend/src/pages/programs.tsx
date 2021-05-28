@@ -115,10 +115,7 @@ export default function Programs({
 }
 
 export async function getStaticProps() {
-    const [programsPage, programsContent] = await Promise.all([
-        fetchApi('programs-page'),
-        fetchApi('programs',)
-    ]);
+    const programsPage = await fetchApi('programs-page');
 
     return {
       revalidate: 60,
@@ -126,7 +123,7 @@ export async function getStaticProps() {
         headerImage: programsPage.headerImage,
         headerText: programsPage.headerText as string,
         headerDescription: programsPage.headerDescription as string,
-        programs: programsContent,
+        programs: programsPage.programs,
       },
     }
   }

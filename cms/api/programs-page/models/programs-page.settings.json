@@ -2,7 +2,8 @@
   "kind": "singleType",
   "collectionName": "programs_pages",
   "info": {
-    "name": "Programs Page"
+    "name": "Programs Page",
+    "description": ""
   },
   "options": {
     "increments": true,
@@ -26,6 +27,9 @@
     },
     "headerDescription": {
       "type": "text"
+    },
+    "programs": {
+      "collection": "programs"
     }
   }
 }

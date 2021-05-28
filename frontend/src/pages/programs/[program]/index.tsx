@@ -54,8 +54,8 @@ export async function getStaticProps({ params }) {
     return {
         revalidate: 60,
         props: {
-            content: programContent[0]?.detail_content,
-            name: programContent[0].name as string,
+            content: programContent[0]?.detail_content as string || null,
+            name: programContent[0]?.name as string || null,
             photo: programContent[0]?.photo ||  null,
         }
     }
