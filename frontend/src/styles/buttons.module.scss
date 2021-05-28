@@ -54,17 +54,17 @@
 	content: '';
 	background: variables.$blue-purple-gradient;
 	position: absolute;
-	height: 2px;
+	height: 4px;
 	width: 100%;
 	bottom: 0;
 	left: 0;
 }
 .secondary:hover {
 	@include variables.unset-gradient-text-overlay;
-	color: blue;
+	color: variables.$blue;
 }
 .secondary:hover:after {
-	background: blue;
+	background: variables.$blue;
 }
 .secondary:disabled {
 	background: white;

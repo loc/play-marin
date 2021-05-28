@@ -1,0 +1,66 @@
+@use './variables.scss';
+
+.page-container {
+    display: flex;
+    flex-direction: column;
+    min-height: 56vw;
+}
+
+.page-container div:after {
+    // remove "fade" pseudo-element from <FeaturePhoto /> component
+    display: none;
+}
+
+.row {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.program-details {
+    display: flex;
+    flex-basis: 33%;
+    flex-direction: column;
+}
+
+.header {
+    display: flex;
+    justify-content: space-evenly;
+    padding: 1rem;
+}
+
+.loc {
+    align-self: flex-end;
+}
+
+.page-content {
+    padding-bottom: 1rem;
+    padding-left: 1rem;
+}
+
+@media screen and (max-width: 1020px) {
+    .row {
+        flex-direction: column;
+    }
+
+    .program-details {
+        flex-basis: unset;
+        padding: unset;
+    }
+
+    .loc {
+        align-self: center;
+    }
+
+    .loc img {
+        width: 4vw;
+    }
+
+	.page-content {
+        max-width: 95%;
+    }
+
+    .page-content img {
+        max-width: 100%;
+    }
+}

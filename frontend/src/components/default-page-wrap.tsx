@@ -13,7 +13,7 @@ export function DefaultPageWrap({
 	activeMenuItem = 'none',
 	children,
 }: {
-	activeMenuItem: 'about' | 'contact' | 'none';
+	activeMenuItem: 'about' | 'contact' | 'programs' | 'none';
 	children: any;
 }) {
 	const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -64,10 +64,18 @@ export function DefaultPageWrap({
 								<a>About</a>
 							</Link>
 						</li>
-						{/* <li>
-							<a href="#">Programs</a>
+						<li
+							className={
+								activeMenuItem === 'programs'
+									? header['menu-list-item-current']
+									: undefined
+							}
+						>
+							<Link href="/programs">
+								<a>Programs</a>
+							</Link>
 						</li>
-						<li>
+						{/* <li>
 							<a href="#">Gallery</a>
 						</li>
 						<li>
