@@ -62,7 +62,8 @@ export default function Program({
 }
 
 export async function getStaticPaths() {
-    const programs = await fetchApi('programs')
+    // only fetch programs with actual detail pages
+    const programs = await fetchApi('programs?has_detail_page=true')
 
     // // We'll pre-render only these paths at build time.
     const paths = programs.map((program: { name: string }) => ({
