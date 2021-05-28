@@ -2,7 +2,7 @@ import { DefaultPageWrap } from '../../../components/default-page-wrap'
 import FeaturePhoto from '../../../components/feature-photo'
 import MarkdownToReact from '../../../components/markdown-to-react'
 
-import styles from '../../../styles/program-detail.module.scss'
+import styles from '../../../styles/program.module.scss'
 
 import { fetchApi } from '../../../utils/api'
 import { Awaited } from '../../../utils/utils'
@@ -37,11 +37,11 @@ export default function Program({
 export async function getStaticPaths() {
     const programs = await fetchApi('programs');
 
+    // // We'll pre-render only these paths at build time.
     const paths = programs.map((program: { name: string }) => ({
       params: { program: program.name },
     }))
   
-    // // We'll pre-render only these paths at build time.
     // // { fallback: false } means other routes should 404.
     return { paths, fallback: false }
 }

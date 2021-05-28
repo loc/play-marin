@@ -24,8 +24,8 @@
 }
 
 .programs-container {
-    display: flex;
-    flex-direction: column;
+    display: grid;
+    grid-auto-rows: 1fr;
     left: -30px;
     position: relative;
     width: calc(100% + 60px);
@@ -37,15 +37,11 @@
 }
 
 .program-photo {
+    background-size: cover;
     display: flex;
     flex-basis: 50%;
     flex-direction: row;
-}
-
-.program-photo {
-    background-size: cover;
-    height: 100%;
-    padding-bottom: 50%;
+    // height: 50vw; // equivalent of flex-basis; 50%; property to make image square
 }
 
 .program-letter-container {
@@ -56,24 +52,6 @@
     flex-direction: column;
 }
 
-.program-letter {
-    background: variables.$blue-purple-gradient;
-    border-radius: 100%;
-    height: auto;
-    padding-top: 50%;
-    position: relative;
-    width: 50%;
-}
-
-.program-letter span {
-    color: variables.$text-bg;
-    font-size: xx-large;
-    font-weight: bold;  
-    left: 45%;
-    position: absolute;
-    top: 45%;
-}
-
 .program-container {
     display: flex;
     flex-basis: 50%;
@@ -81,48 +59,11 @@
     padding: 3vw;
 }
 
-.program-title-block {
-    padding-bottom: 2vw;
-    text-transform: uppercase;
-}
-
-.program-logo {
-    align-items: center;
-    background: variables.$blue-purple-gradient;
-    border-radius: 100%;
-    display: flex;
-    flex-basis: 20%;
-    justify-content: center;
-    max-height: 48px;
-    max-width: 48px;
-}
-
-.program-logo span {
-    color: variables.$text-bg;
-    font-size: 1.5rem;
-    font-weight: bold;
-}
-
-.program-title {
-    font-size: 1.75rem;  
-    font-weight: bold;
-}
-
-.program-schedule {
-    font-size: 1em;
-    font-weight: bold;
-    line-height: 150%;
-}
-
 .program-details {
     display: flex;
     flex-basis: 80%;
     flex-direction: column;
     padding: 0 2vw 2vw;
-}
-
-.program-location {
-    text-transform: initial;
 }
 
 .program-inner-block {
@@ -134,13 +75,7 @@
 .program-inner-content {
     display: flex;
     flex-direction: column;
-    padding-left: 2vw;
-}
-
-.program-location {
-    font-style: normal;
-    font-weight: bold;
-    line-height: 150%;
+    padding-left: 4vw; // to align with text block in ProgramLocation
 }
 
 .short-description {
@@ -183,10 +118,6 @@
 
     .program-row {
         flex-direction: column;
-    }
-
-    .program-logo {
-        flex-basis: 43%;
     }
 
     .short-description {

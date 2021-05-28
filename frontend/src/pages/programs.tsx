@@ -1,8 +1,11 @@
 import Link from 'next/link';
 import { DefaultPageWrap } from '../components/default-page-wrap';
 import FeaturePhoto from '../components/feature-photo';
+import ProgramLocation from '../components/program-location';
+import ProgramLogo, { logoSizeType } from '../components/program-logo';
+import ProgramTitle from '../components/program-title';
 
-import styles from '../styles/programs.module.scss';
+import styles from '../styles/programs-page.module.scss';
 import buttons from '../styles/buttons.module.scss';
 
 import { fetchApi } from '../utils/api';
@@ -15,7 +18,6 @@ export default function Programs({
     programs,
 }: Awaited<ReturnType<typeof getStaticProps>>['props']) {
     function programPhoto(program: { photo: { url: string }, name: string }) {
-
         if (program.photo) {
             return (
                 <div className={styles['program-photo']}
@@ -25,9 +27,7 @@ export default function Programs({
         } else {
             return (
                 <div className={styles['program-letter-container']}>
-                    <div className={styles['program-letter']}>
-                        <span>{program.name[0].toUpperCase()}</span>
-                    </div>
+                    <ProgramLogo letter={program.name[0]} size={logoSizeType.Large} />
                 </div>
             )
         }
@@ -56,39 +56,27 @@ export default function Programs({
                             {programPhoto(program)}
                             
                             <div className={styles['program-container']}>                                
-                                <div className={styles['program-logo']}>
-                                    <span>{program.name[0].toUpperCase()}</span>
-                                </div>
+                                <ProgramLogo letter={program.name[0]} size={logoSizeType.Small} />
 
                                 <div className={styles['program-details']}>
                                     
                                     <div className={styles['program-title-container']}>
-                                        <div className={styles['program-title-block']}>
-                                            <div className={styles['program-title']}>{program.name}</div>
-                                            <div className={styles['program-schedule']}>
-                                                {program.offer_schedule === 'month_to_month' ? 
-                                                    `${program.schedule_start} ● ${program.schedule_end}` : 
-                                                        program.offer_schedule === 'all_year' ? 
-                                                            'all year' : 
-                                                                'unavailable'}
-                                            </div>
-                                        </div>
+                                        <ProgramTitle name={program.name} 
+                                            offer_schedule={program.offer_schedule}
+                                            schedule_start={program.schedule_start}
+                                            schedule_end={program.schedule_end} />
                                     </div>
 
-                                    <div className={styles['program-inner-block']}>
-                                        <img src='img/location-marker.svg' alt='map marker icon'/>
+                                    <ProgramLocation 
+                                        location_type={program.location_type}
+                                        location_name={program.location_name}
+                                        location_street_address={program.location_street_address}
+                                        location_city={program.location_city}
+                                        location_state={program.location_state}
+                                        location_zip={program.location_zip} />
 
+                                    <div className={styles['program-inner-block']}>
                                         <div className={styles['program-inner-content']}>
-                                            <div className={styles['program-location']}>
-                                                { program.location_type === 'multiple' ? 'Various Locations' : 
-                                                    <div>
-                                                        <div>{program.location_name}</div>
-                                                        <div>{program.location_street_address}</div>
-                                                        <div>{program.location_city}, {program.location_state} {program.location_zip}</div>
-                                                    </div>
-                                                }
-                                            </div>
-                                        
                                             <div className={styles['short-description']}>
                                                 {program.blurb}
                                             </div>
@@ -123,7 +111,22 @@ export async function getStaticProps() {
         headerImage: programsPage.headerImage,
         headerText: programsPage.headerText as string,
         headerDescription: programsPage.headerDescription as string,
-        programs: programsPage.programs,
+        programs: programsPage.programs as [{ 
+            name: string, 
+            photo: { url: string },
+            offer_schedule: string,
+            schedule_start: string,
+            schedule_end: string,
+            location_type: string,
+            location_name: string,
+            location_street_address: string,
+            location_city: string,
+            location_state: string,
+            location_zip: string,
+            blurb: string,
+            has_detail_page: boolean,
+            detail_content: string,
+        }],
       },
     }
   }

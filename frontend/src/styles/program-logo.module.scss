@@ -1,0 +1,43 @@
+@use './variables.scss';
+
+.circle {
+    background: variables.$blue-purple-gradient;
+    border-radius: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.circle span {
+    align-self: center;
+    color: variables.$text-bg;
+    font-weight: bold;
+}
+
+.circle--small {
+    height: 5vw;
+    width: 5vw;
+}
+
+.circle--small span {
+    font-size: 2rem;
+}
+
+.circle--large {
+    height: 25vw;
+    width: 25vw;
+}
+
+.circle--large span {
+    font-size: 12rem;
+}
+
+@media screen and (max-width: 1020px) {
+    .circle--small {
+        height: 12vw;
+        width: 12vw;
+    }
+
+    .circle--large span {
+        font-size: 5rem;
+    }
+}
