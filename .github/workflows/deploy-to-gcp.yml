@@ -24,7 +24,7 @@ jobs:
       - uses: actions/checkout@v2
       
       - name: Install dependencies
-        working_directory: ./frontend
+        working-directory: ./frontend
         run: yarn install
       
       - name: Install SSH key
