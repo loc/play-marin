@@ -17,27 +17,25 @@ export default function ProgramLocation(
         location_zip: string,
     }
 ) {
-    function location() {
-        if (location_type === 'multiple') {
-           return <div>Various Locations</div>
-        } else {
-            return (
+    if (location_type != 'none') {
+        return (
+            (<div className={styles['container']}>
+            <img className={styles['icon']} src='/img/location-marker.svg' alt='map marker icon'/>
+
+            <div className={styles['address']}>
+            if (location_type === 'multiple') {
+                <div>Various Locations</div>
+            } else {
                 <div>
                     <div>{location_name}</div>
                     <div>{location_street_address}</div>
                     <div>{location_city}, {location_state} {location_zip}</div>
                 </div>
-            )
-        }
-    }
-
-    return (
-        <div className={styles['container']}>
-            <img className={styles['icon']} src='/img/location-marker.svg' alt='map marker icon'/>
-
-            <div className={styles['address']}>
-                {location()}
+            }
             </div>
-        </div>
-    )
+        </div>)
+        )
+    } else {
+        return null
+    }
 }

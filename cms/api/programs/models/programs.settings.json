@@ -71,7 +71,8 @@
       "type": "enumeration",
       "enum": [
         "single",
-        "multiple"
+        "multiple",
+        "none"
       ]
     },
     "location_street_address": {
