@@ -64,7 +64,7 @@ export function DefaultPageWrap({
 								<a>About</a>
 							</Link>
 						</li>
-						<li
+						{/* <li
 							className={
 								activeMenuItem === 'programs'
 									? header['menu-list-item-current']
@@ -74,7 +74,7 @@ export function DefaultPageWrap({
 							<Link href="/programs">
 								<a>Programs</a>
 							</Link>
-						</li>
+						</li> */}
 						{/* <li>
 							<a href="#">Gallery</a>
 						</li>

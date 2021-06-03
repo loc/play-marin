@@ -33,71 +33,92 @@ export default function Programs({
         }
     }
 
-    return (
-        <DefaultPageWrap activeMenuItem='programs'>
-            <FeaturePhoto url={headerImage?.url} />
+    function pageContent() {
+        return (
+            <DefaultPageWrap activeMenuItem='programs'>
+                <FeaturePhoto url={headerImage?.url} />
 
-            <div className={styles['header-container']}>
-                <div className={styles['header-content']}>
-                    <h1 className={styles['page-header']}>
-                        {headerText}
-                    </h1>
-                    <p>
-                        {headerDescription}
-                    </p>
+                <div className={styles['header-container']}>
+                    <div className={styles['header-content']}>
+                        <h1 className={styles['page-header']}>
+                            {headerText}
+                        </h1>
+                        <p>
+                            {headerDescription}
+                        </p>
+                    </div>
                 </div>
-            </div>
 
-            <div className={styles['programs-container']}>
-                {
-                    programs.map((program, i: number) => 
-                        <div key={i} className={styles['program-row']}>
-                            
-                            {programPhoto(program)}
-                            
-                            <div className={styles['program-container']}>                                
-                                <ProgramLogo letter={program.name[0]} size={logoSizeType.Small} />
+                <div className={styles['programs-container']}>
+                    {
+                        programs.map((program, i: number) => 
+                            <div key={i} className={styles['program-row']}>
+                                
+                                {programPhoto(program)}
+                                
+                                <div className={styles['program-container']}>                                
+                                    <ProgramLogo letter={program.name[0]} size={logoSizeType.Small} />
 
-                                <div className={styles['program-details']}>
-                                    
-                                    <div className={styles['program-title-container']}>
-                                        <ProgramTitle name={program.name} 
-                                            offer_schedule={program.offer_schedule}
-                                            schedule_start={program.schedule_start}
-                                            schedule_end={program.schedule_end} />
-                                    </div>
-
-                                    <ProgramLocation 
-                                        location_type={program.location_type}
-                                        location_name={program.location_name}
-                                        location_street_address={program.location_street_address}
-                                        location_city={program.location_city}
-                                        location_state={program.location_state}
-                                        location_zip={program.location_zip} />
-
-                                    <div className={styles['program-inner-block']}>
-                                        <div className={styles['program-inner-content']}>
-                                            <div className={styles['short-description']}>
-                                                {program.blurb}
-                                            </div>
-
-                                            {program.has_detail_page ? 
-                                                <Link href={`/programs/${program.name}`}>
-                                                    <a className={[buttons['secondary'], styles['detail-link']].join(' ')}>Learn More</a>
-                                                </Link> 
-                                                : null }
+                                    <div className={styles['program-details']}>
+                                        
+                                        <div className={styles['program-title-container']}>
+                                            <ProgramTitle name={program.name} 
+                                                offer_schedule={program.offer_schedule}
+                                                schedule_start={program.schedule_start}
+                                                schedule_end={program.schedule_end} />
                                         </div>
-                                    </div>                           
+
+                                        <ProgramLocation 
+                                            location_type={program.location_type}
+                                            location_name={program.location_name}
+                                            location_street_address={program.location_street_address}
+                                            location_city={program.location_city}
+                                            location_state={program.location_state}
+                                            location_zip={program.location_zip} />
+
+                                        <div className={styles['program-inner-block']}>
+                                            <div className={styles['program-inner-content']}>
+                                                <div className={styles['short-description']}>
+                                                    {program.blurb}
+                                                </div>
+
+                                                { program.has_detail_page ? 
+                                                    <Link href={`/programs/${program.name}`}>
+                                                        <a className={[buttons['secondary'], styles['detail-link']].join(' ')}>Learn More</a>
+                                                    </Link> 
+                                                    : null }
+                                            </div>
+                                        </div>                           
+                                    </div>
+                                </div>
+
+                                <div className={styles['short-description--mobile']}>
+                                    {program.blurb}
                                 </div>
                             </div>
+                        )
+                    }
+                </div>
+            </DefaultPageWrap>
+        )
+    }
 
-                            <div className={styles['short-description--mobile']}>
-                                {program.blurb}
-                            </div>
-                        </div>
-                    )
-                }
+    function comingSoon() {
+        return (
+            <div className={styles['soon-container']}>
+                <div className={styles['soon']}>Coming Soon!</div>
+                <button className={buttons['primary']}>
+                    <Link href='/'>
+                        Back to Play Marin Home
+                    </Link>
+                </button>
             </div>
+        )
+    }
+
+    return (
+        <DefaultPageWrap activeMenuItem={'none'}>
+            {true ? comingSoon() : pageContent()}
         </DefaultPageWrap>
     )
 }
