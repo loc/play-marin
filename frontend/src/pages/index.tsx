@@ -27,7 +27,7 @@ export default function Home({
 	programCalendarBars,
 	programCalendarDescription,
 	isPreview,
-}: Awaited<ReturnType<typeof getStaticProps>>['props']) {
+}: Awaited<ReturnType<typeof getServerSideProps>>['props']) {
 	return (
 		<DefaultPageWrap activeMenuItem="none" isPreview={isPreview}>
 			<FeaturePhoto url={carousel[0].url} />

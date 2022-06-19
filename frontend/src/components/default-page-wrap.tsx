@@ -14,7 +14,13 @@ export function DefaultPageWrap({
 	children,
 	isPreview,
 }: {
-	activeMenuItem: 'about' | 'contact' | 'programs' | 'news' | 'none';
+	activeMenuItem:
+		| 'about'
+		| 'contact'
+		| 'programs'
+		| 'news'
+		| 'gallery'
+		| 'none';
 	children: any;
 	isPreview?: boolean;
 }) {
