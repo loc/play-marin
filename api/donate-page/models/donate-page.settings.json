@@ -26,7 +26,8 @@
         "videos"
       ],
       "plugin": "upload",
-      "required": false
+      "required": false,
+      "pluginOptions": {}
     },
     "shopLinkTextFirst": {
       "type": "string"
@@ -40,7 +41,8 @@
         "videos"
       ],
       "plugin": "upload",
-      "required": false
+      "required": false,
+      "pluginOptions": {}
     },
     "lowerPageHeaderText": {
       "type": "string"
@@ -69,12 +71,37 @@
         "videos"
       ],
       "plugin": "upload",
-      "required": false
+      "required": false,
+      "pluginOptions": {}
     },
     "donationFormIframeLink": {
       "type": "string",
       "default": "https://secure.lglforms.com/form_engine/s/DyJ9AqAOL3OOLxrGV7s-mg",
       "required": true
+    },
+    "bottom_image": {
+      "model": "file",
+      "via": "related",
+      "allowedTypes": [
+        "images"
+      ],
+      "plugin": "upload",
+      "required": true,
+      "pluginOptions": {}
+    },
+    "buttom_block_heading": {
+      "type": "string"
+    },
+    "buttom_block_time": {
+      "type": "string",
+      "required": true
+    },
+    "buttom_block_description": {
+      "type": "text",
+      "required": true
+    },
+    "buttom_block_link": {
+      "type": "text"
     }
   }
 }

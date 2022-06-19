@@ -31,7 +31,8 @@
         "images"
       ],
       "plugin": "upload",
-      "required": false
+      "required": false,
+      "pluginOptions": {}
     },
     "schedule_start": {
       "type": "enumeration",
@@ -95,6 +96,21 @@
     },
     "detail_content": {
       "type": "richtext"
+    },
+    "btn": {
+      "type": "string"
+    },
+    "btn_url": {
+      "type": "text",
+      "required": true
+    },
+    "learn_more_link": {
+      "type": "text",
+      "required": true
+    },
+    "title_shortcode": {
+      "type": "text",
+      "required": true
     }
   }
 }
