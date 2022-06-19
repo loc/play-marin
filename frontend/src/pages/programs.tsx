@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import { DefaultPageWrap } from '../components/default-page-wrap';
-import FeaturePhoto from '../components/feature-photo';
+import ProgramPhoto from '../components/program-photo';
+import ProgramList from '../components/program-photo-list';
 import ProgramLocation from '../components/program-location';
 import ProgramLogo, { logoSizeType } from '../components/program-logo';
 import ProgramTitle from '../components/program-title';
@@ -36,7 +37,7 @@ export default function Programs({
     function pageContent() {
         return (
             <DefaultPageWrap activeMenuItem='programs'>
-                <FeaturePhoto url={headerImage?.url} />
+               
 
                 <div className={styles['header-container']}>
                     <div className={styles['header-content']}>
@@ -103,28 +104,55 @@ export default function Programs({
         )
     }
 
-    function comingSoon() {
+            
+            
+    function programpage() {
         return (
-            <div className={styles['soon-container']}>
-                <div className={styles['soon']}>Coming Soon!</div>
-                <button className={buttons['primary']}>
-                    <Link href='/'>
-                        Back to Play Marin Home
-                    </Link>
-                </button>
+             <div>
+
+                <ProgramPhoto headerImage={headerImage} headerText={headerText} headerDescription={headerDescription}/> 
+                
+             {/* filter section html start */}
+
+            <div className={styles['program-filter']}>
+                <Link href="/">
+						<button className={styles['buttonsprimary']}>SIGN UP ON TEAM SNAP</button>
+					</Link>
+                <ul>
+                <li className={styles['active']}>
+                   <Link href='/'>ACTIVITIES A-Z</Link>
+                    </li>      
+                    <li>
+                    <Link href='/'>CALENDAR VIEW</Link>
+                    </li>      
+                 </ul>
+            </div>
+
+            {/* filter section html End*/}
+
+
+            <ProgramList programs={programs}/>
+
+
+            <div className={styles['program-footer-text-block']}>
+                <p>Check our calendar and follow our social channels for more partnership sports and activities such as Flag Football, Rowing, and more!</p>
+            </div>
+
             </div>
         )
     }
 
     return (
-        <DefaultPageWrap activeMenuItem={'none'}>
-            {true ? comingSoon() : pageContent()}
+        <DefaultPageWrap activeMenuItem={'programs'}>
+            {true ? programpage() : pageContent()}
         </DefaultPageWrap>
     )
 }
 
 export async function getStaticProps() {
     const programsPage = await fetchApi('programs-page');
+	const programs = await fetchApi('programs');
+	console.log("programsPage",programsPage);
 
     return {
       revalidate: 60,
@@ -147,6 +175,9 @@ export async function getStaticProps() {
             blurb: string,
             has_detail_page: boolean,
             detail_content: string,
+			Btn_url: string,
+			title_shortcode: string,
+			learn_more_link: string,
         }],
       },
     }

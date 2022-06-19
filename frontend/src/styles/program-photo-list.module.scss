@@ -1,0 +1,221 @@
+@use './variables.scss';
+
+.list-wrap {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    position: relative;
+}
+.list-wrap-humb{
+    width: 48%;
+    img{
+        max-width: 100%;
+        vertical-align: top;
+        height: 100%;
+        width: 100%;
+    }
+}
+.list-wrap-content{
+    width: 48%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 30px 0;
+}
+
+.list-content-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+.list-header-user{
+    width: 48px;
+    height: 48px;
+    border-radius: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    line-height: 22px;
+    color: #FFFFFF;
+    font-family: Roboto Condensed, sans-serif;
+    margin-top: 7px;
+    background: linear-gradient(45deg, #009EDB 0%, #5E419A 49.48%, #991F68 100%);
+}
+.list-header-name{
+      margin-left: 27px;
+
+    h3{
+        font-weight: 900;
+        font-size: 28px;
+        line-height: 33px;
+        color: #000000;
+        margin: 0;
+    }
+    span{
+        font-weight: bold;
+        font-size: 18px;
+        line-height: 21px;
+        color: #505067;
+    }
+}
+.list-header-sign{
+    display: flex;
+    flex: 1;
+    justify-content: flex-end;
+}
+
+
+.list-content-body{
+	/*
+    background: url(/../img/address-pin.svg) no-repeat 0 3px;
+	*/
+    margin-left: 75px;
+    padding-left: 35px;
+
+    h4{
+        font-weight: bold;
+        font-size: 16px;
+        line-height: 24px;
+        color: #333333;
+        max-width: 150px;
+        min-height: 72px;
+    }
+    p{
+        font-size: 18px;
+        line-height:27px;
+        color: #333333;
+        font-weight: normal;
+    }
+}
+.list-content-body-learn{margin-top: 30px;}
+.list-content-body-learn a {
+    font-weight: bold;
+    font-size: 18px;
+    line-height: 21px;
+    position: relative;
+    padding-bottom: 7px;
+    text-decoration: none;
+    background-image: -webkit-linear-gradient(45deg,#009edb,#991f68);
+    background-image: linear-gradient(45deg,#009edb,#991f68);
+    -webkit-background-clip: text;
+    -moz-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    -moz-text-fill-color: transparent;
+    &:after{
+        content: "";
+        height: 4px;
+        width: 100%;
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        background: -webkit-linear-gradient(45deg, #009EDB 0%, #5E419A 49.48%, #991F68 100%);
+        background: linear-gradient(45deg, #009EDB 0%, #5E419A 49.48%, #991F68 100%);
+    }
+}
+
+.buttonscovid{
+    font-size: 20px;
+    border-radius: 10rem;
+    padding: 13px 28px 14px;
+    color: #505067;
+    border: 1px solid #BBBFC4;
+    background: #FFFFFF;
+    font-family: Roboto Condensed,sans-serif;
+    text-transform: uppercase;
+    transition: all ease-in-out 0.3s 0s;
+    &:hover{
+        background:#BBBFC4;
+        transition: all ease-in-out 0.3s 0s;
+        color: #000;
+    }
+}
+.buttonsprimary{
+    font-size: 20px;
+    background: -webkit-linear-gradient(45deg,#009edb,#991f68);
+    background: linear-gradient(45deg,#009edb,#991f68);
+    background-size: auto;
+    border-radius: 10rem;
+    padding: 13px 28px 14px;
+    border: none;
+    color: #fff;
+    -webkit-transition: background-size .15s cubic-bezier(.46,-.01,.39,1.03),background-color .15s ease;
+    transition: background-size .15s cubic-bezier(.46,-.01,.39,1.03),background-color .15s ease;
+    background-size: 100%;
+    font-family: Roboto Condensed,sans-serif;
+    text-transform: uppercase;
+    &:hover{
+        background-size: 300%;
+        -webkit-transition: background-size .3s cubic-bezier(.46,-.01,.39,1.03),background-color .3s ease;
+        transition: background-size .3s cubic-bezier(.46,-.01,.39,1.03),background-color .3s ease;
+    }
+}
+
+
+@media screen and (max-width: 990px) {
+
+    .list-wrap {
+        flex-wrap: wrap;
+    }
+    .list-wrap-humb{
+        width: 100%;
+        img{
+            width: 100%;
+        }
+    }
+    .list-wrap-content{
+        width: 100%;
+        padding: 50px 25px;
+    }
+
+}
+
+@media screen and (max-width: 575px) {
+    .list-content-header {
+        flex-wrap: wrap;
+    }
+    .list-header-name{
+        width: 100%;
+        flex: 1;
+        margin-bottom: 15px;
+    }
+    .list-header-sign{
+        justify-content: flex-start;
+        margin-left: 76px;
+        width: 100%;
+        flex: inherit;
+    }
+    .list-content-body{
+        margin-left: 10px;
+        padding: 0;
+        background: none;
+        h4{
+            min-height: 40px;
+            background: url(/../img/address-pin.svg) no-repeat 10px 3px;
+            padding: 0 0 0 65px;
+            max-width: inherit;
+            width: 220px;
+        }
+        p{
+            font-size: 16px;
+            line-height: 24px;
+        }
+    }
+    .buttonscovid, .buttonsprimary{
+        font-size: 16px;
+        padding: 10px 20px 8px;
+    }
+    .list-header-name{
+  
+      h3{
+          font-size: 24px;
+          line-height:28px;
+      }
+      span{
+          font-size: 16px;
+          line-height: 19px;
+      }
+  }
+
+    
+}

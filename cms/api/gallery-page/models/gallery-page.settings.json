@@ -1,0 +1,40 @@
+{
+  "kind": "singleType",
+  "collectionName": "gallery_pages",
+  "info": {
+    "name": "Gallery Page",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "HeaderGalleryText": {
+      "type": "string"
+    },
+    "headerGalleryDescription": {
+      "type": "string"
+    },
+    "headerGalleryImage": {
+      "model": "file",
+      "via": "related",
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos"
+      ],
+      "plugin": "upload",
+      "required": false,
+      "pluginOptions": {}
+    },
+    "NewFields": {
+      "type": "string"
+    },
+    "view_all_link": {
+      "type": "text",
+      "required": true
+    }
+  }
+}

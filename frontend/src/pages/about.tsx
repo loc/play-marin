@@ -47,7 +47,7 @@ export default function About({ teamTitle, teamMembers, blocks, partners }) {
 			</div>
 			<hr />
 			<div className={aboutPage['partners-block']}>
-				<h2 className={aboutPage['heading']}>Our Partners</h2>
+				<h2 className={aboutPage['heading']}>Impact Partners</h2>
 				<ul className={aboutPage.partners}>
 					{partners.map((partner) => (
 						<li key={partner}>{partner}</li>

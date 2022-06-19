@@ -84,6 +84,13 @@
     height: 100%;
 }
 
+.list-wrap {
+ .lower-img {
+   min-height: 420px;
+ 
+  }
+ }
+
 @media screen and (max-width: 830px) {
     .upper-container,
     .lower-container {
@@ -125,4 +132,120 @@
         font-size: 3vh;
         padding-top: 0;
     }
+}
+
+.list-wrap {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    position: relative;
+}
+
+
+.list-wrap-humb{
+    width: 50%;
+    img{
+        max-width: 100%;
+        vertical-align: top;
+    }
+}
+.list-wrap-content{
+    width: 50%;
+    padding: 56px;
+        p{
+        font-size: 18px;
+        line-height:27px;
+        color: #333333;
+        font-weight: normal;
+    }
+}
+
+.list-header-name{
+ margin-bottom: 30px;
+    h3{
+        font-weight: 900;
+        font-size: 28px;
+        line-height: 33px;
+        color: #000000;
+        margin: 0;
+    }
+    span{
+        font-weight: bold;
+        font-size: 18px;
+        line-height: 21px;
+        color: #505067;
+        font-family: "Roboto Condensed", sans-serif;
+    }
+}
+
+
+.list-content-body-learn{margin-top: 30px;}
+.list-content-body-learn a {
+    font-weight: bold;
+    font-size: 18px;
+    line-height: 21px;
+    position: relative;
+    padding-bottom: 7px;
+    text-decoration: none;
+    background-image: -webkit-linear-gradient(45deg,#009edb,#991f68);
+    background-image: linear-gradient(45deg,#009edb,#991f68);
+    -webkit-background-clip: text;
+    -moz-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    -moz-text-fill-color: transparent;
+    font-family: "Roboto Condensed", sans-serif;
+    &:after{
+        content: "";
+        height: 4px;
+        width: 100%;
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        background: -webkit-linear-gradient(45deg, #009EDB 0%, #5E419A 49.48%, #991F68 100%);
+        background: linear-gradient(45deg, #009EDB 0%, #5E419A 49.48%, #991F68 100%);
+    }
+}
+
+@media (min-width: 991px) {
+.list-wrap:nth-child(2n) .list-wrap-humb {
+    order: 2;
+}
+}
+
+@media screen and (max-width: 990px) {
+
+    .list-wrap {
+        flex-wrap: wrap;
+    }
+    .list-wrap-humb{
+        width: 100%;
+        img{
+            width: 100%;
+        }
+    }
+    .list-wrap-content{
+        width: 100%;
+        padding: 50px 25px;
+    }
+
+
+}
+
+@media screen and (max-width: 575px) {
+
+    .list-header-name{
+        width: 100%;
+        flex: 1;
+        margin-bottom: 15px;
+    }
+    .list-header-name{
+  
+      h3{
+          font-size: 24px;
+          line-height:28px;
+      }
+  }
+
+    
 }

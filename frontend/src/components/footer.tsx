@@ -53,7 +53,7 @@ export default function Footer() {
 						</li>
 					</ul>
 					<p className={footer.copyright}>
-						Copyright &copy; 2021 Play Marin, a California benefit corporation.
+						Copyright &copy; 2021 Play Marin, a California Non-Profit Corporation 94966.
 						All rights reserved.
 					</p>
 				</div>

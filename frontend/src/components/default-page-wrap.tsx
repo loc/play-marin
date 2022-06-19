@@ -13,7 +13,7 @@ export function DefaultPageWrap({
 	activeMenuItem = 'none',
 	children,
 }: {
-	activeMenuItem: 'about' | 'contact' | 'programs' | 'none';
+	activeMenuItem: 'about' | 'contact' | 'programs' | 'news' | 'none';
 	children: any;
 }) {
 	const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -64,23 +64,43 @@ export function DefaultPageWrap({
 								<a>About</a>
 							</Link>
 						</li>
-						{/* <li
+						{
+							<li
+								className={
+									activeMenuItem === 'programs'
+										? header['menu-list-item-current']
+										: undefined
+								}
+							>
+								<Link href="/programs">
+									<a>Programs</a>
+								</Link>
+							</li>
+						}
+						{
+							<li
+								className={
+									activeMenuItem === 'gallery'
+										? header['menu-list-item-current']
+										: undefined
+								}
+							>
+								<Link href="/gallery">
+									<a>Gallery</a>
+								</Link>
+							</li>
+						}
+						<li
 							className={
-								activeMenuItem === 'programs'
+								activeMenuItem === 'news'
 									? header['menu-list-item-current']
 									: undefined
 							}
 						>
-							<Link href="/programs">
-								<a>Programs</a>
+							<Link href="/news">
+								<a>NEWSLETTER</a>
 							</Link>
-						</li> */}
-						{/* <li>
-							<a href="#">Gallery</a>
 						</li>
-						<li>
-							<a href="#">News</a>
-						</li> */}
 						<li
 							className={
 								activeMenuItem === 'contact'
