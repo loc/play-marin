@@ -26,9 +26,10 @@ export default function Home({
 	pullquotePhoto,
 	programCalendarBars,
 	programCalendarDescription,
+	isPreview,
 }: Awaited<ReturnType<typeof getStaticProps>>['props']) {
 	return (
-		<DefaultPageWrap activeMenuItem="none">
+		<DefaultPageWrap activeMenuItem="none" isPreview={isPreview}>
 			<FeaturePhoto url={carousel[0].url} />
 
 			<div className={homepage['tag-line']}>{tagLine}</div>
@@ -101,7 +102,7 @@ export default function Home({
 	);
 }
 
-export async function getStaticProps(context) {
+export async function getServerSideProps({ query }) {
 	const [homepage, programCalendar] = await Promise.all([
 		fetchApi('homepage'),
 		fetchApi('homepage-program-calendars'),
@@ -125,8 +126,8 @@ export async function getStaticProps(context) {
 	);
 
 	return {
-		revalidate: 60,
 		props: {
+			isPreview: !!query.isPreview,
 			carousel: homepage.photo_carousel,
 			tagLine: homepage.tagLine as string,
 			youtubeEmbed: homepage.intro_video.youtube_embed,

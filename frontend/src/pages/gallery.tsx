@@ -16,10 +16,9 @@ export default function Programs({
 	view_all_link,
 	programs,
 }: Awaited<ReturnType<typeof getStaticProps>>['props']) {
-	console.log('====programs', programs);
 	function pageContent() {
 		return (
-			<DefaultPageWrap activeMenuItem="programs">
+			<DefaultPageWrap activeMenuItem="gallery" isPreview>
 				<div className={styles['header-container']}>
 					<div className={styles['header-content']}>
 						<h1 className={styles['page-header']}>{headerText}</h1>
@@ -109,12 +108,8 @@ export default function Programs({
 }
 
 export async function getStaticProps() {
-	console.log('heree=====');
 	const programsPage = await fetchApi('gallery-page');
 	const gallery = await fetchApi('galleries');
-
-	console.log('gallery-page', programsPage);
-	console.log('galleries', gallery);
 
 	return {
 		revalidate: 60,

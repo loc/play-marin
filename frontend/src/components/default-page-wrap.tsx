@@ -12,9 +12,11 @@ import main from '../styles/main.module.scss';
 export function DefaultPageWrap({
 	activeMenuItem = 'none',
 	children,
+	isPreview,
 }: {
 	activeMenuItem: 'about' | 'contact' | 'programs' | 'news' | 'none';
 	children: any;
+	isPreview?: boolean;
 }) {
 	const [isMenuOpen, setIsMenuOpen] = useState(false);
 	const ref = useRef(null);
@@ -64,43 +66,43 @@ export function DefaultPageWrap({
 								<a>About</a>
 							</Link>
 						</li>
-						{
-							<li
-								className={
-									activeMenuItem === 'programs'
-										? header['menu-list-item-current']
-										: undefined
-								}
-							>
-								<Link href="/programs">
-									<a>Programs</a>
-								</Link>
-							</li>
-						}
-						{
-							<li
-								className={
-									activeMenuItem === 'gallery'
-										? header['menu-list-item-current']
-										: undefined
-								}
-							>
-								<Link href="/gallery">
-									<a>Gallery</a>
-								</Link>
-							</li>
-						}
-						<li
-							className={
-								activeMenuItem === 'news'
-									? header['menu-list-item-current']
-									: undefined
-							}
-						>
-							<Link href="/news">
-								<a>NEWSLETTER</a>
-							</Link>
-						</li>
+						{isPreview && (
+							<>
+								<li
+									className={
+										activeMenuItem === 'programs'
+											? header['menu-list-item-current']
+											: undefined
+									}
+								>
+									<Link href="/programs">
+										<a>Programs</a>
+									</Link>
+								</li>
+								<li
+									className={
+										activeMenuItem === 'gallery'
+											? header['menu-list-item-current']
+											: undefined
+									}
+								>
+									<Link href="/gallery">
+										<a>Gallery</a>
+									</Link>
+								</li>
+								<li
+									className={
+										activeMenuItem === 'news'
+											? header['menu-list-item-current']
+											: undefined
+									}
+								>
+									<Link href="/news">
+										<a>NEWSLETTER</a>
+									</Link>
+								</li>
+							</>
+						)}
 						<li
 							className={
 								activeMenuItem === 'contact'
